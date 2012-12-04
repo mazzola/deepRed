@@ -10,13 +10,13 @@ function replay(m){
 	if(typeof(m) !== 'undefined'){
 		replayMoves = m;
 	}
-	stopReplay();
+	stop();
 	replayMove(0);
 }
 
 function replayMove(count){
 	var limit = replayMoves.length - 44;
-	if (count >= limit || isLevel1()){
+	if (count >= limit){
 		console.log("replay done");
 		clearInterval(sendKey);
 		sendKey= setTimeout("runAI()", 200);
@@ -33,7 +33,8 @@ function replayMove(count){
 		}else{
 			makeMove(null);
 		}
-		sendKey = setTimeout(function(){replayMove(count+2);}, 200);
+		count = count + 2;
+		sendKey = setTimeout("replayMove(count)", 200);
 	}
 }
 
