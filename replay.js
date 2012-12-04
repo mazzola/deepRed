@@ -13,7 +13,6 @@ function replay(m){
 	if(typeof(m) !== 'undefined'){
 		replayMoves = m;
 	}
-	stop();
 	replayMove(0);
 }
 
