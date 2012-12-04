@@ -48,7 +48,10 @@ function replayMove2(){
 		score();
 		//add new moves array to movesMade and increment index
 		sendKey = setTimeout("startNewGame()",500);
-	}else{
+	}else if (replayMoves.length <= 58){
+		sendKey = setTimeout("runAI()", 200);
+	}
+	else{
 		if (isLevel1()){
 			console.log("You died");
 			var last = movesMade.length-1;
