@@ -19,7 +19,7 @@ function replayMove(count){
 	if (count >= limit || isLevel1()){
 		console.log("replay done");
 		clearInterval(sendKey);
-		sendKey= setTimeout("runAI()", 10);
+		sendKey= setTimeout("runAI()", 200);
 	}else{
 		move1 = replayMoves[count];
 		move2 = replayMoves[count+1];

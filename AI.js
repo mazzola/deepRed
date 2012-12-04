@@ -99,7 +99,7 @@ function makeMove(move){
 			}//if it is not being pressed fire a keydown
 			else{ 
 				down_left = true;
-				movesMade.push(new Move(KEY_LEFT, true, pipe));
+				movesMade.push(new Move(KEY_LEFT, true, getPipe()));
 				Podium.keyup(KEY_LEFT); 
 				Podium.keydown(KEY_LEFT); 
 				break;
@@ -109,14 +109,14 @@ function makeMove(move){
 			//If it is being pressed fire a keyup
 			if (down_right){
 				down_right = false;
-				movesMade.push(new Move(KEY_RIGHT, false, pipe));
+				movesMade.push(new Move(KEY_RIGHT, false, getPipe()));
 				Podium.keyup(KEY_RIGHT); 
 				break;
 			}
 			//If it is not being pressed fire a keydown
 			else{
 				down_right = true;
-				movesMade.push(new Move(KEY_RIGHT, true, pipe));
+				movesMade.push(new Move(KEY_RIGHT, true, getPipe()));
 				Podium.keydown(KEY_RIGHT); 
 				break;
 			}
@@ -125,13 +125,13 @@ function makeMove(move){
 			//If it is being pressed fire a keyup
 			if (down_jump){
 				down_jump = false;
-				movesMade.push(new Move(KEY_JUMP, false, pipe));
+				movesMade.push(new Move(KEY_JUMP, false, getPipe()));
 				Podium.keyup(KEY_JUMP); 
 				break;
 			}//If it is not being pressed fire a keydown
 			else{
 				down_jump = true;
-				movesMade.push(new Move(KEY_JUMP, true, pipe));
+				movesMade.push(new Move(KEY_JUMP, true, getPipe()));
 				Podium.keydown(KEY_JUMP); 
 				break;
 			}
