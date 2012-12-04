@@ -4,7 +4,6 @@
 
 //test
 //replayMoves = [(null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(88,true,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(88,false,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(88,true,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(88,false,null)), (new Move(39,false,null)), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(88,true,null)), (null), (new Move(39,false,null)), (null), (new Move(88,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(88,true,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (new Move(88,false,null)), (new Move(88,true,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(88,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(88,true,null)), (null), (new Move(39,true,null)), (new Move(88,false,null)), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (new Move(39,false,null)), (new Move(88,true,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(88,false,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(88,true,null)), (new Move(39,false,null)), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(88,false,null)), (null), (new Move(39,true,null))];
-replayTimeout = setTimeout("", 10000000000);
 //function that replays
 function replay(m){
 	allUp();
@@ -20,7 +19,7 @@ function replayMove(count){
 	if (count >= limit || isLevel1()){
 		console.log("replay done");
 		clearInterval(sendKey);
-		runAI();
+		sendKey= setTimeout("runAI()", 10);
 	}else{
 		move1 = replayMoves[count];
 		move2 = replayMoves[count+1];
@@ -34,7 +33,7 @@ function replayMove(count){
 		}else{
 			makeMove(null);
 		}
-		replyTimeout = setTimeout(function(){replayMove(count+2);}, 200);
+		sendKey = setTimeout(function(){replayMove(count+2);}, 200);
 	}
 }
 
