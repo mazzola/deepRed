@@ -128,10 +128,10 @@ function toStr(data){
 
 //makes sure all keypress are up
 function allUp(){
-	Podium.keyup(88);
-	Podium.keyup(37);
-	Podium.keyup(39);
-	down37 = false; //left arrow
-	down39 = false; //right arrow 
-	down88 = false; //jump
+	Podium.keyup(KEY_JUMP);
+	Podium.keyup(KEY_LEFT);
+	Podium.keyup(KEY_RIGHT);
+	down_left = false; //left arrow
+	down_right = false; //right arrow 
+	down_jump = false; //jump
 }
