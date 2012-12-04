@@ -12,17 +12,18 @@ function replay(m){
 		replayMoves = m;
 	}
 	stopReplay();
-	replayMove();
+	replayMove(0);
 }
 
-function replayMove(){
-	if (replayMoves.length <= 68){
+function replayMove(count){
+	var limit = replayMoves.lenght - 68;
+	if (count <= limit || isLevel1()){
 		console.log("replay done");
 		clearInterval(sendKey);
-		sendKey = setTimeout('runAI()', 200);
+		runAI();
 	}else{
-		move1 = replayMoves.shift();
-		move2 = replayMoves.shift();
+		move1 = replayMoves[count];
+		move2 = replayMoves[count+1];
 		if (move1 != null){
 			makeMove(move1.move);
 		}else{
@@ -33,7 +34,7 @@ function replayMove(){
 		}else{
 			makeMove(null);
 		}
-		replyTimeout = setTimeout('replayMove()', 200);
+		replyTimeout = setTimeout(function(){replayMove(count+2);}, 200);
 	}
 }
 
