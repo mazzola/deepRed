@@ -102,7 +102,7 @@ function getGoodMoves(array){
 			temp[whichArray].push(array[i]);
 		}
 		else{
-			console.log("goodMoves next");
+			console.log("goodMoves next " + i);
 			whichArray++;
 			temp.push([]);
 		}
@@ -111,7 +111,6 @@ function getGoodMoves(array){
 	for (var i = 1; i < moves.length; i++){
 		console.log("Max length : " + max.length + "Temp length: " + temp.length);
 		if (max.length < temp[i]){
-			
 			max = moves[i];
 		}
 	}
