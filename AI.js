@@ -18,11 +18,11 @@ function genMove(){
 	var right = currentHuer.right;
 	var left = right + currentHuer.left;
 	if (value < right){
-		return 39;
+		return KEY_RIGHT;
 	}else if (value < left){
-		return 37;
+		return KEY_LEFT;
 	}else{
-		return 88;
+		return KEY_JUMP;
 	}
 }
 
@@ -36,18 +36,18 @@ function genUp(){
 	var right = currentHuer.rightUp;
 	var left = right + currentHuer.leftUp;
 	if (value < right){
-		move = 39;
+		move = KEY_RIGHT;
 	}else if (value < left){
-		move = 37;
+		move = KEY_LEFT;
 	}else{
-		move = 88;
+		move = KEY_JUMP;
 	}
 	switch(move){
 	//left arrow
-	case 37:
+	case KEY_LEFT:
 		//If it is being pressed fire a keyup
-		if (down37){
-			makeMove(37);
+		if (down_left){
+			makeMove(KEY_LEFT);
 			break;
 		}
 		else{
@@ -55,10 +55,10 @@ function genUp(){
 			break;
 		}
 		//Right arrow
-	case 39:
+	case KEY_RIGHT:
 		//If it is being pressed fire a keyup
-		if (down39){
-			makeMove(39);
+		if (down_right){
+			makeMove(KEY_RIGHT);
 			break;
 		}
 		else{
@@ -66,10 +66,10 @@ function genUp(){
 			break;
 		}
 		//Jump key (x)
-	case 88:
+	case KEY_JUMP:
 		//If it is being pressed fire a keyup
-		if (down88){
-			makeMove(88);
+		if (down_jump){
+			makeMove(KEY_JUMP);
 			break;
 		}
 		else{
@@ -89,50 +89,50 @@ function makeMove(move){
 	else{
 		switch(move){
 		//left arrow
-		case 37:
+		case KEY_LEFT:
 			//If it is being pressed fire a keyup with some probability
-			if (down37){
-				down37 = false;
-				movesMade.push(new Move(37, false, pipe));
-				Podium.keyup(37); 
+			if (down_left){
+				down_left = false;
+				movesMade.push(new Move(KEY_LEFT, false, pipe));
+				Podium.keyup(KEY_LEFT); 
 				break;
 			}//if it is not being pressed fire a keydown
 			else{ 
-				down37 = true;
-				movesMade.push(new Move(37, true, pipe));
-				Podium.keyup(37); 
-				Podium.keydown(37); 
+				down_left = true;
+				movesMade.push(new Move(KEY_LEFT, true, pipe));
+				Podium.keyup(KEY_LEFT); 
+				Podium.keydown(KEY_LEFT); 
 				break;
 			}
 			//Right arrow
-		case 39:
+		case KEY_RIGHT:
 			//If it is being pressed fire a keyup
-			if (down39){
-				down39 = false;
-				movesMade.push(new Move(39, false, pipe));
-				Podium.keyup(39); 
+			if (down_right){
+				down_right = false;
+				movesMade.push(new Move(KEY_RIGHT, false, pipe));
+				Podium.keyup(KEY_RIGHT); 
 				break;
 			}
 			//If it is not being pressed fire a keydown
 			else{
-				down39 = true;
-				movesMade.push(new Move(39, true, pipe));
-				Podium.keydown(39); 
+				down_right = true;
+				movesMade.push(new Move(KEY_RIGHT, true, pipe));
+				Podium.keydown(KEY_RIGHT); 
 				break;
 			}
 			//Jump key (x)
-		case 88:
+		case KEY_JUMP:
 			//If it is being pressed fire a keyup
-			if (down88){
-				down88 = false;
-				movesMade.push(new Move(88, false, pipe));
-				Podium.keyup(88); 
+			if (down_jump){
+				down_jump = false;
+				movesMade.push(new Move(KEY_JUMP, false, pipe));
+				Podium.keyup(KEY_JUMP); 
 				break;
 			}//If it is not being pressed fire a keydown
 			else{
-				down88 = true;
-				movesMade.push(new Move(88, true, pipe));
-				Podium.keydown(88); 
+				down_jump = true;
+				movesMade.push(new Move(KEY_JUMP, true, pipe));
+				Podium.keydown(KEY_JUMP); 
 				break;
 			}
 		}
@@ -154,13 +154,13 @@ function score(){
 		var temp = array[i];
 		if (temp != null){
 			switch(temp.move){
-			case 37:
+			case KEY_LEFT:
 				score = score + 10;
 				break;
-			case 39:
+			case KEY_RIGHT:
 				score = score + 1;
 				break;
-			case 88:
+			case KEY_JUMP:
 				score = score + 2;
 				break;
 			case -1:
