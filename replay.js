@@ -19,27 +19,28 @@ function replayMove(){
 	if (replayMoves.length <=0){
 		console.log("replay done");
 		clearInterval(sendKey);
-		setTimeout("runAI()",200);
-	}else if (isLevel1()){
-		console.log("level1");
-		runAI();
+		setTimeout("runAI()", 200);
 	}else{
-		move1 = replayMoves.shift();
-		move2 = replayMoves.shift();
-		if (move1 != null){
-			makeMove(move1.move);
+		if (isLevel1()){
+			console.log("level1");
+			runAI();
 		}else{
-			makeMove(null);
+			move1 = replayMoves.shift();
+			move2 = replayMoves.shift();
+			if (move1 != null){
+				makeMove(move1.move);
+			}else{
+				makeMove(null);
+			}
+			if (move2 != null){
+				makeMove(move2.move);
+			}else{
+				makeMove(null);
+			}
+			replyTimeout = setTimeout('replayMove()', 200);
 		}
-		if (move2 != null){
-			makeMove(move2.move);
-		}else{
-			makeMove(null);
-		}
-		replyTimeout = setTimeout('replayMove()', 200);
 	}
 }
-
 function replayMove2(){
 	console.log("replay 2");
 	//is a game over 
