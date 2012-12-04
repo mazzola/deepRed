@@ -93,7 +93,7 @@ function makeMove(move){
 			//If it is being pressed fire a keyup with some probability
 			if (down_left){
 				down_left = false;
-				movesMade.push(new Move(KEY_LEFT, false, pipe));
+				movesMade.push(new Move(KEY_LEFT, false, getPipe()));
 				Podium.keyup(KEY_LEFT); 
 				break;
 			}//if it is not being pressed fire a keydown
