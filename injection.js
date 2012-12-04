@@ -18,9 +18,12 @@ sendKey = setTimeout("", 1000000000000);
  * MAIN METHOD
  * Clears the timeout interval so it can be used to incrementally fire moves
  */
+var run = true;
 function main(){
 	stop();
-	replay(goodMoves);
+	if(run){
+		replay(goodMoves);
+	}
 }
 
 /**
@@ -31,6 +34,7 @@ function main(){
 function stop(){
 	allUp();
 	clearTimeout(sendKey);
+	run = false;
 }
 
 //runs the ai checking for current game state

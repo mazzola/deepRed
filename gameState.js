@@ -1,6 +1,6 @@
 /* ENVIORNMENT */
 
-debug = true;
+debug = false;
 /** Data Arrays for level data 'status' screens
  * Used to determine if mario has completed the level, died or gotten gameover
  */
