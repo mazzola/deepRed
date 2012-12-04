@@ -33,7 +33,7 @@ function replayMove(count){
 		}else{
 			makeMove(null);
 		}
-		count = count + 2;
+		var count = count + 2;
 		sendKey = setTimeout("replayMove(count)", 200);
 	}
 }
