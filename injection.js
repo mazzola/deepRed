@@ -1,12 +1,12 @@
 /** Line of code which injects javascript to JSNES to play mario at
  * http://fir.sh/projects/jsnes/ 
- * $.getScript('https://dl.dropbox.com/u/23547570/deepRed/injection.js') */
+ * $.getScript('https://raw.github.com/mazzola/deepRed/master/injection.js') */
 
 /* INCLUDES */
-jQuery.getScript('https://dl.dropbox.com/u/23547570/deepRed/gameState.js'); //Game State variables
-jQuery.getScript('https://dl.dropbox.com/u/23547570/deepRed/utility.js'); //Utility functions
-jQuery.getScript('https://dl.dropbox.com/u/23547570/deepRed/AI.js'); //AI
-jQuery.getScript('https://dl.dropbox.com/u/23547570/deepRed/replay.js'); //replay
+jQuery.getScript('https://raw.github.com/mazzola/deepRed/master/gameState.js'); //Game State variables
+jQuery.getScript('https://raw.github.com/mazzola/deepRed/master/utility.js'); //Utility functions
+jQuery.getScript('https://raw.github.com/mazzola/deepRed/master/AI.js'); //AI
+jQuery.getScript('https://raw.github.com/mazzola/deepRed/master/replay.js'); //replay
 
 /** 
  * Create an interval timer that should never go off
