@@ -22,7 +22,7 @@ pipe = [117, 227, 0, 255, 117, 227, 0, 255, 0, 171, 0, 255, 117, 227, 0, 255, 11
  * Possible moves that can be made and booleans that state if the key is currently being pressed
  */
 KEY_LEFT = 37;
-KEY_RIGHT = 39
+KEY_RIGHT = 39;
 KEY_JUMP = 88;
 moves = [KEY_LEFT,KEY_RIGHT,KEY_JUMP];
 down_left = false; //left arrow
