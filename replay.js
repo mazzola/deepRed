@@ -38,6 +38,7 @@ function replayMove(){
 }
 
 function replayMove2(){
+	console.log("replay 2");
 	//is a game over 
 	if (isGameOver()){
 		console.log("Game Over");
@@ -77,7 +78,7 @@ function replayMove2(){
 			}else{
 				makeMove(null);
 			}
-			sendKey = setTimeout("replayMove2()", 200);
+			replayTimeout = setTimeout("replayMove2()", 200);
 		}
 	}
 }
