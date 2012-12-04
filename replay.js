@@ -15,7 +15,7 @@ function replay(m){
 }
 
 function replayMove(count){
-	var limit = replayMoves.length - 68;
+	var limit = replayMoves.length - 44;
 	if (count >= limit || isLevel1()){
 		console.log("replay done");
 		clearInterval(sendKey);
