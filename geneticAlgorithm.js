@@ -12,7 +12,7 @@ function geneticAlgorithm(population) {
     sequenceScores.push(fitness(population[i]));
   }
   matingProbability = matingProbability(sequenceScores);
-
+  matingPairs = createMatingPairs(matingProbability);
 
 }
 
@@ -61,4 +61,30 @@ function matingProbability(scores) {
     matingProbabilities.push(probability);
   }
   return matingProbabilities;
+}
+
+function createMatingPairs(matingProbability) {
+  matingPairs[[]];
+  for (i = 0; i < matingProbability.length; i++) {
+    pair = [];
+    pair.push(selectIndexWithPropability(matingProbability));
+    pair.push(selectIndexWithPropability(matingProbability));
+    matingPairs.push(pair);
+  }
+  return matingPairs;
+}
+
+/*
+ * Selects an index from 0..n based on a probability array
+ * of size n
+ */
+function selectIndexWithPropability(matingProbability) {
+  threshold = Math.random();
+  index = 0;
+  cursor = matingProbability[0];
+  while (cursor < threshold) {
+    index = index + 1;
+    cursor = cursor + matingProbability[index]; 
+  }
+  return index;
 }
