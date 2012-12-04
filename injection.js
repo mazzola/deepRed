@@ -20,7 +20,7 @@ sendKey = setTimeout("", 1000000000000);
  */
 var run = true;
 function main(){
-	stop();
+	allUp();
 	if(run){
 		replay(goodMoves);
 	}
@@ -44,7 +44,7 @@ function runAI(){
 		console.log("Game Over");
 		movesMade.push(new Move(-1, false));
 		getGoodMoves(movesMade);
-		stop();
+		allUp();
 		score();
 		//add new moves array to movesMade and increment index
 		sendKey = setTimeout("startNewGame()",500);
@@ -57,7 +57,7 @@ function runAI(){
 			if( elem.move != -1){
 				movesMade.push(new Move(-1, false));
 			}
-			stop();
+			allUp();
 			sendKey = setTimeout("runAI()", 4000);
 		}else if (isLevel2()){
 			console.log("YOU WIN!");
@@ -80,7 +80,7 @@ function startNewGame(){
 	//if on level one start the main method after five seconds
 	if (isLevel1()){
 		movesMade = [];
-		stop();
+		allUp();
 		sendKey = setTimeout("main()", 4000);
 	}else{
 		//press enter then release enter
