@@ -12,7 +12,7 @@ function replay(m){
 		replayMoves = m;
 	}
 	stopReplay();
-	replayMove2();
+	replayMove();
 }
 
 function replayMove(){
@@ -50,7 +50,6 @@ function replayMove2(){
 		sendKey = setTimeout("startNewGame()",500);
 	}else if (replayMoves.length <= 58){
 		runAI();
-		sendKey = setTimeout("runAI()", 200);
 	}
 	else{
 		if (isLevel1()){
