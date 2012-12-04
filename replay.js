@@ -24,8 +24,8 @@ function replayMove(){
 		clearInterval(sendKey);
 		sendKey= setTimeout("runAI()", 200);
 	}else{
-		move1 = replayMoves[count];
-		move2 = replayMoves[count+1];
+		move1 = replayMoves[index];
+		move2 = replayMoves[index+1];
 		if (move1 != null){
 			makeMove(move1.move);
 		}else{
