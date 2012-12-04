@@ -16,9 +16,12 @@ function replay(m){
 }
 
 function replayMove(){
-	if (replayMoves.length <= 38 || isLevel1()){
+	if (replayMoves.length <= 38){
 		console.log("replay done");
 		clearInterval(sendKey);
+		setTimeout("runAI()",200);
+	}else if (isLevel1()){
+		console.log("level1");
 		runAI();
 	}else{
 		move1 = replayMoves.shift();
