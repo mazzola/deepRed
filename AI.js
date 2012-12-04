@@ -5,7 +5,7 @@ goodMoves = [];
 /**
  * Huersitic Data
  */
-currentHuer = {right:.70,left:.001,jump:.299, jumpUp: .0025, leftUp: .995, rightUp: .0025};
+currentHuer = {right:.60,left:.001,jump:.399, jumpUp: .0025, leftUp: .995, rightUp: .0025};
 //where the hueristics, their final move sequence and score will be saved
 saveHuer = [];
 
