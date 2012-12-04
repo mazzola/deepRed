@@ -54,7 +54,7 @@ function runAI(){
 				movesMade.push(new Move(-1, false));
 			}
 			stop();
-			sendKey = setTimeout("runAI()", 4000);
+			sendKey = setTimeout("replay(goodMoves)", 4000);
 		}else if (isLevel2()){
 			console.log("YOU WIN!");
 			movesMade.push(new Move(-2, false));
