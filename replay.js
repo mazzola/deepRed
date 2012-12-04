@@ -16,7 +16,7 @@ function replay(m){
 }
 
 function replayMove(){
-	if (replayMoves.length <= 58){
+	if (replayMoves.length <= 58 || isLevel1()){
 		console.log("replay done");
 		clearInterval(sendKey);
 		sendKey = setTimeout('runAI()', 200);
