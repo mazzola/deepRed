@@ -49,6 +49,7 @@ function replayMove2(){
 		//add new moves array to movesMade and increment index
 		sendKey = setTimeout("startNewGame()",500);
 	}else if (replayMoves.length <= 58){
+		runAI();
 		sendKey = setTimeout("runAI()", 200);
 	}
 	else{
