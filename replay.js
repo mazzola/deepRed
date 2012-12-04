@@ -33,8 +33,8 @@ function replayMove(count){
 		}else{
 			makeMove(null);
 		}
-		var count = count + 2;
-		sendKey = setTimeout("replayMove(count)", 200);
+		var test = count + 2;
+		sendKey = setTimeout("replayMove(test)", 200);
 	}
 }
 
