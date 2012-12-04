@@ -114,5 +114,6 @@ function getGoodMoves(array){
 			max = moves[i];
 		}
 	}
+	console.log("Test");
 	goodMoves= max;
 }
