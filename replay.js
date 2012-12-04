@@ -38,5 +38,5 @@ function replayMove(count){
 }
 
 function stopReplay(){
-	clearTimeout(replayTimeout);
+	clearTimeout(sendKey);
 }
