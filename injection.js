@@ -54,7 +54,7 @@ function runAI(){
 			var last = movesMade.length-1;
 			var elem = movesMade[last];
 			allUp();
-			if( elem.move != -1){
+			if( elem = null || elem.move != -1){
 				movesMade.push(new Move(-1, false));
 			}
 			allUp();
