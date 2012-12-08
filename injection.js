@@ -68,6 +68,7 @@ function runAI(){
 			console.log('done');
 		}else if (!isDiffTime()){
 			console.log('Same Time!!!');
+			sendKey = setTimeout("runAI()", 200);
 		}else{
 			//With probabilty for the hueristic function see if one of the keys is released
 			makeMove(allMoves.shift());

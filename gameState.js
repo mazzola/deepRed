@@ -58,10 +58,10 @@ function isDiffTime(){
 	if (!isMatch(prevTime, now)){
 		prevTime = now;
 		numTime = 0;
-		return false;
+		return true;
 	}else{
 		numTime++;
-		return numTime < 6;
+		return numTime < 7;
 	}
 }
 
