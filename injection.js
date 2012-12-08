@@ -67,6 +67,7 @@ function runAI(){
 			clearInterval(sendKey);
 			score();
 			console.log('done');
+			sendKey = setTimeout("runAI()", 4000);
 		}else if (!isDiffTime()){
 			console.log('Same Time!!!');
 			sendKey = setTimeout("runAI()", 200);
@@ -105,6 +106,9 @@ function getGoodMoves(array){
 	var whichArray = 0;
 	var max = [];
 	for(var i = 0; i < array.length; i++){
+		if (array[i] != null && array[i].move == -2){
+			i = array.length;
+		}
 		if(array[i] == null || array[i].move != -1){
 			temp[whichArray].push(array[i]);
 		}
