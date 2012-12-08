@@ -7,6 +7,7 @@ jQuery.getScript('https://raw.github.com/mazzola/deepRed/master/gameState.js'); 
 jQuery.getScript('https://raw.github.com/mazzola/deepRed/master/utility.js'); //Utility functions
 jQuery.getScript('https://raw.github.com/mazzola/deepRed/master/AI.js'); //AI
 jQuery.getScript('https://raw.github.com/mazzola/deepRed/master/replay.js'); //replay
+jQuery.getScript('https://raw.github.com/mazzola/deepRed/master/winner.js'); //winner
 
 /** 
  * Create an interval timer that should never go off
