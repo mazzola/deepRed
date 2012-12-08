@@ -60,6 +60,7 @@ function isDiffTime(){
 		numTime = 0;
 		return true;
 	}else{
+		console.log("SAMMMEME");
 		numTime++;
 		return numTime < 7;
 	}
