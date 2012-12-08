@@ -67,9 +67,9 @@ function runAI(){
 			console.log('done');
 		}else{
 			//With probabilty for the hueristic function see if one of the keys is released
-			genUp();
+			makeMove(allMoves.shift());
 			//makes a random move
-			makeMove(genMove());
+			makeMove(allMoves.shift());
 			sendKey = setTimeout("runAI()", 200);
 		}
 	}
@@ -81,6 +81,7 @@ function startNewGame(){
 	if (isLevel1()){
 		movesMade = [];
 		allUp();
+		getMoves(24000);
 		sendKey = setTimeout("main()", 4000);
 	}else{
 		//press enter then release enter
@@ -116,4 +117,14 @@ function getGoodMoves(array){
 	}
 	console.log("Test");
 	goodMoves= max;
+}
+
+/**
+ * function that generates n moves 
+ **/
+function getMoves(n){
+	for (var i = 0; i < n; i++){
+		allMoves.push(genMove());
+		allMoves.push(genUp());
+	}
 }

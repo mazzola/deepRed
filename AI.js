@@ -1,5 +1,6 @@
 //An array of the last good moves
 goodMoves = [];
+allMoves = [];
 
 
 /**
@@ -47,33 +48,33 @@ function genUp(){
 	case KEY_LEFT:
 		//If it is being pressed fire a keyup
 		if (down_left){
-			makeMove(KEY_LEFT);
+			return KEY_LEFT;
 			break;
 		}
 		else{
-			makeMove(null);
+			return null;
 			break;
 		}
 		//Right arrow
 	case KEY_RIGHT:
 		//If it is being pressed fire a keyup
 		if (down_right){
-			makeMove(KEY_RIGHT);
+			return KEY_RIGHT;
 			break;
 		}
 		else{
-			makeMove(null);
+			return null;
 			break;
 		}
 		//Jump key (x)
 	case KEY_JUMP:
 		//If it is being pressed fire a keyup
 		if (down_jump){
-			makeMove(KEY_JUMP);
+			return KEY_JUMP;
 			break;
 		}
 		else{
-			makeMove(null);
+			return null;
 			break;
 		}
 	}
