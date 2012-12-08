@@ -110,12 +110,11 @@ function getGoodMoves(array){
 	}
 	max = temp[0];
 	for (var i = 1; i < moves.length; i++){
-		console.log("Max length : " + max.length + "Temp length: " + temp.length);
-		if (max.length < temp[i]){
+		console.log("Max length : " + max.length + "Temp length: " + temp[i].length);
+		if (max.length < temp[i].length){
 			max = moves[i];
 		}
 	}
-	console.log("Test");
 	goodMoves= max;
 }
 
