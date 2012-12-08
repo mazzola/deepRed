@@ -23,7 +23,7 @@ function replayMove(){
 	}else{
 		if (isLevel1()){
 			console.log("level1");
-			setTimeout("runAI()", 200);
+			runAI();
 		}else{
 			move1 = replayMoves.shift();
 			move2 = replayMoves.shift();

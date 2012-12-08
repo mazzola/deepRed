@@ -41,6 +41,7 @@ function stop(){
 
 //runs the ai checking for current game state
 function runAI(){
+	console.log("run AI");
 	//is a game over 
 	if (isGameOver()){
 		console.log("Game Over");
