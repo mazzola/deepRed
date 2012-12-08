@@ -20,6 +20,7 @@ sendKey = setTimeout("", 1000000000000);
  */
 var run = true;
 function main(){
+	console.log("Start main loop");
 	allUp();
 	if(run){
 		replay(goodMoves);
@@ -79,6 +80,7 @@ function runAI(){
 function startNewGame(){
 	//if on level one start the main method after five seconds
 	if (isLevel1()){
+		console.log("New Game!");
 		movesMade = [];
 		allUp();
 		getMoves(24000);
