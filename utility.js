@@ -8,7 +8,7 @@ function isMatch(data1,data2){
 	for(var i = 0; i<data1.length; i++){
 		if(data1[i] != data2[i]) return false;
 	}
-	return true;
+	return data1.length == data2.length;
 };
 
 

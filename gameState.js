@@ -62,7 +62,7 @@ function isDiffTime(){
 	}else{
 		console.log("SAMMMEME");
 		numTime = numTime + 1;
-		return numTime < 11;
+		return numTime < 6;
 	}
 }
 
