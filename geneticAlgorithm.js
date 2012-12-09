@@ -99,7 +99,7 @@ function geneticAlgorithm(sequence_set, population) {
 
 DEATH = -1;
 GAME_OVER = 2;
-WIN = -2
+WIN = -2;
 
 /**
  * Takes in an array of 50 move sequences and returns the average score
