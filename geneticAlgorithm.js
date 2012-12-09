@@ -32,9 +32,9 @@ function geneticHelper(){
 	if (genetic){
 		console.log("Main Genetic Loop");
 		var pop = MPDF_array[MPDF_array.length-1];
-		for (var i = 0; i < 4; i++){
-			setTimeout(function(){startNewGame(pop[i]);},10);
-		}
+		var temp = startNewGame(pop[i]);
+		return temp;
+		roundSequence.push(temp);
 		//  Run the genetic algorithm on each set of 25
 		var printNew = geneticAlgorithm(roundSequence,MPDF_array);
 		for (var i = 0; i < printNew.length; i++){

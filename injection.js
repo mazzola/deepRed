@@ -91,7 +91,7 @@ function startNewGame(mpdf){
 		currentHuer = mpdf;
 	}
 	if (currentIteration == iterations){
-		roundSequence.push(returnData);
+		return returnData;
 	}
 	//if on level one start the main method after five seconds
 	if (isLevel1()){
