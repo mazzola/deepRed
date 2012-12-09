@@ -13,7 +13,7 @@ jQuery.getScript('https://raw.github.com/mazzola/deepRed/master/utility.js'); //
 
 var MPDF_array = [];
 var genetic = true;
-function main() {
+function startGenetic() {
 	// Randomly produce 4 MPDFs (global variables)
 	var temp = [];
 	for (var i = 0; i < 4; i++){
@@ -40,7 +40,7 @@ function main() {
 	// End Loop
 }
 
-function stop(){
+function stopGenetic(){
 	genetic = false;
 }
 
