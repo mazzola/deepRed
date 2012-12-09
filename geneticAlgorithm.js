@@ -58,18 +58,21 @@ function generateMPDF(){
 		if (ammount < total){
 			total = total - ammount;
 			array.push(ammount);
+			console.log(ammount);
 		}
 	}
 	array.push(total);
 	total = 1;
-	while (array.length < 2){
+	while (array.length < 5){
 		var ammount = Math.random();
 		if (ammount < total){
 			total = total - ammount;
 			array.push(ammount);
+			console.log(ammount);
 		}
 	}
 	array.push(total);
+	console.log(array.length);
 	var temp= convertArraytoMPDF(array);
 	printMPDF(temp);
 	return temp;
@@ -246,5 +249,5 @@ function printMPDF(mpdf){
 	for (key in mpdf) {
 		str = str + ' ' + key + ': ' + mpdf[key];
 	}
-	return str;
+	console.log(str);
 }
