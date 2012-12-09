@@ -144,3 +144,43 @@ function makeMove(move){
 		console.log(printMove(move));
 	}
 }
+
+/**
+ * Function that sequence of moves from the longest life
+ */
+function getGoodMoves(array){
+	var temp = [[]];
+	var whichArray = 0;
+	var max = [];
+	for(var i = 0; i < array.length; i++){
+		if (array[i] != null && array[i].move == -2){
+			i = array.length;
+		}
+		if(array[i] == null || array[i].move != -1){
+			temp[whichArray].push(array[i]);
+		}
+		else{
+			console.log("goodMoves next " + i);
+			whichArray++;
+			temp.push([]);
+		}
+	}
+	max = temp[0];
+	for (var i = 1; i < temp.length; i++){
+		console.log("Max length : " + max.length + " Temp length: " + temp[i].length);
+		if (max.length < temp[i].length){
+			max = temp[i];
+		}
+	}
+	goodMoves= max;
+}
+
+/**
+ * function that generates n moves 
+ **/
+function getMoves(n){
+	for (var i = 0; i < n; i++){
+		allMoves.push(genMove());
+		allMoves.push(genUp());
+	}
+}

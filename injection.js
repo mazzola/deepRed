@@ -58,7 +58,15 @@ function runAI(){
 			console.log("You died");
 			var last = movesMade.length-1;
 			var elem = movesMade[last];
+			var test;
+			if (isMatch(goodMoves,[])){
+				test = allMoves.shift();
+				while (test != null){
+					test = allMoves.shift();
+				}
+			}
 			allUp();
+			
 			if( elem == null || elem.move != -1){
 				movesMade.push(new Move(-1, false));
 			}
@@ -93,6 +101,7 @@ function startNewGame(mpdf){
 	}
 	//if on level one start the main method after five seconds
 	if (isLevel1()){
+		console.log("Round: "+ currentIteration);
 		console.log("New Game!");
 		movesMade = [];
 		allUp();
@@ -104,44 +113,4 @@ function startNewGame(mpdf){
 		setTimeout("Podium.keyup(13)",200);
 		setTimeout(function(){startNewGame(null);}, 250);
 	}	
-}
-
-/**
- * Function that sequence of moves from the longest life
- */
-function getGoodMoves(array){
-	var temp = [[]];
-	var whichArray = 0;
-	var max = [];
-	for(var i = 0; i < array.length; i++){
-		if (array[i] != null && array[i].move == -2){
-			i = array.length;
-		}
-		if(array[i] == null || array[i].move != -1){
-			temp[whichArray].push(array[i]);
-		}
-		else{
-			console.log("goodMoves next " + i);
-			whichArray++;
-			temp.push([]);
-		}
-	}
-	max = temp[0];
-	for (var i = 1; i < temp.length; i++){
-		console.log("Max length : " + max.length + " Temp length: " + temp[i].length);
-		if (max.length < temp[i].length){
-			max = temp[i];
-		}
-	}
-	goodMoves= max;
-}
-
-/**
- * function that generates n moves 
- **/
-function getMoves(n){
-	for (var i = 0; i < n; i++){
-		allMoves.push(genMove());
-		allMoves.push(genUp());
-	}
 }
