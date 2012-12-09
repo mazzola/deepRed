@@ -20,7 +20,7 @@ function replayMove(){
 	if (replayMoves.length <= 24){
 		console.log("replay done");
 		clearInterval(sendKey);
-		setTimeout("runAI()", 200);
+		setTimeout("runAI()", 300);
 	}else{
 		if (isLevel1()){
 			console.log("level1");
@@ -38,7 +38,7 @@ function replayMove(){
 			}else{
 				makeMove(null);
 			}
-			replyTimeout = setTimeout('replayMove()', 100 + delay/100);
+			replyTimeout = setTimeout('replayMove()', 300 + delay/100);
 		}
 	}
 }
