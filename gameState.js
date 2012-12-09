@@ -61,7 +61,7 @@ function isDiffTime(){
 		return true;
 	}else{
 		numTime = numTime + 1;
-		return numTime < 6;
+		return numTime < 11;
 	}
 }
 
