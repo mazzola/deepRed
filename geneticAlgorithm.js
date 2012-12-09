@@ -126,7 +126,7 @@ function fitness(sequence_array) {
 				case WIN:
 					score = score - 1000000000;
 				}
-				if (move != null && sequence[i-2]!= null && isMatch(move.pipe, sequence[i-2].pipe)) {
+				if (move != null && sequence[i-2] != null && isMatch(move.pipeCheck, sequence[i-2].pipeCheck)) {
 					score = score + 100;
 				}
 			}
