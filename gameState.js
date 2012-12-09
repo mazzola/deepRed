@@ -80,5 +80,5 @@ function isPipe(){
  * function that gets the a sqaure of pixels infront of mario
  **/
 function getPipe(){
-	return jQuery('.nes-screen')[0].getContext('2d').getImageData(135,200,3,3).data;
+	return jQuery('.nes-screen')[0].getContext('2d').getImageData(0,40,214,1).data;
 }
