@@ -31,7 +31,7 @@ down_jump = false; //'x' jump
 prevTime = [];
 numTime = 0;
 iterations = 50;
-currentIterration = 0;
+currentIteration = 0;
 fitnessCount = 4;
 
 //Array that stores arrays of moves that have been made
