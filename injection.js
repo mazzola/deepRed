@@ -91,7 +91,8 @@ function startNewGame(mpdf){
 		currentHuer = mpdf;
 	}
 	if (currentIteration == iterations){
-		return returnData;
+		roundSequence.push(returnData);
+		geneticHelper();
 	}
 	//if on level one start the main method after five seconds
 	if (isLevel1()){

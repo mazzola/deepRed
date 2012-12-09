@@ -14,6 +14,7 @@ jQuery.getScript('https://raw.github.com/mazzola/deepRed/master/utility.js'); //
 var MPDF_array = [];
 var genetic = true;
 var roundSequence = [];
+
 function startGenetic() {
 	console.log("Starting Genetic");
 	// Randomly produce 4 MPDFs (global variables)
@@ -32,17 +33,18 @@ function geneticHelper(){
 	if (genetic){
 		console.log("Main Genetic Loop");
 		var pop = MPDF_array[MPDF_array.length-1];
-		var temp = startNewGame(pop[i]);
-		return temp;
-		roundSequence.push(temp);
-		//  Run the genetic algorithm on each set of 25
-		var printNew = geneticAlgorithm(roundSequence,MPDF_array);
-		for (var i = 0; i < printNew.length; i++){
-			printMPDF(printNew[i]);
+		if (roundSequence.length < 4){
+			startNewGame(pop[roundSequence.length]);
+		}else{
+			//  Run the genetic algorithm on each set of 25
+			var printNew = geneticAlgorithm(roundSequence,MPDF_array);
+			for (var i = 0; i < printNew.length; i++){
+				printMPDF(printNew[i]);
+			}
+			MPDF_array.push(printNew);
+			roundSequence= [];
+			geneticHelper();
 		}
-		MPDF_array.push(printNew);
-		roundSequence= [];
-		geneticHelper();
 	}
 }
 
