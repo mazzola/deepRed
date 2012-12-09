@@ -99,6 +99,7 @@ function geneticAlgorithm(sequence_set, population) {
 
 DEATH = -1;
 GAME_OVER = 2;
+WIN = -2
 
 /**
  * Takes in an array of 50 move sequences and returns the average score
@@ -106,7 +107,7 @@ GAME_OVER = 2;
  */
 function fitness(sequence_array) {
 	console.log("Fittness");
-	score = 0;
+	score = 1000000000;
 	for (var s = 0; s < sequence_array.length; s++) {
 		sequence = sequence_array[s];
 		for (var i = 1; i < sequence.length; i++) {
@@ -120,6 +121,8 @@ function fitness(sequence_array) {
 					score = score + 1000000;
 					i = sequence.length;
 					break;
+				case WIN:
+					score = score - 1000000000;
 				}
 				if (isMatch(move.pipe, sequence[i-1].pipe)) {
 					score = score + 100;
