@@ -29,7 +29,7 @@ function startGenetic() {
 		console.log("Main Genetic Loop");
 		var pop = MPDF_array[MPDF_array.length-1];
 		for (var i = 0; i < 4; i++){
-			startNewGame(pop[i]);
+			setTimeout(function(){startNewGame(pop[i]);},10);
 		}
 		//  Run the genetic algorithm on each set of 25
 		var printNew = geneticAlgorithm(roundSequence,MPDF_array);
@@ -149,7 +149,7 @@ function matingProbability(scores) {
 
 function createMatingPairs(matingProbability, population) {
 	console.log("Mating Pairs");
-	matingPairs[[]];
+	matingPairs=[];
 	for (var i = 0; i < matingProbability.length/2; i++) {
 		pair = [];
 		pair.push(selectMPDFWithPropability(matingProbability, population));
