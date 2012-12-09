@@ -144,34 +144,3 @@ function makeMove(move){
 		console.log(printMove(move));
 	}
 }
-
-/**
- * function that scores the current huersitic against the master the lower the score the better
- */
-function score(){
-	var score = 0;
-	var array = movesMade;
-	for(var i = 0; i < array.length; i++){
-		var temp = array[i];
-		if (temp != null){
-			switch(temp.move){
-			case KEY_LEFT:
-				score = score + 10;
-				break;
-			case KEY_RIGHT:
-				score = score + 1;
-				break;
-			case KEY_JUMP:
-				score = score + 2;
-				break;
-			case -1:
-				score = score + 100000;
-				break;
-			case -2:
-				i = array.length;
-				break;
-			}
-		}
-	}
-	saveHuer.push({moves:array, huer:currentHuer, score:score});
-}

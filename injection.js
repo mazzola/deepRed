@@ -25,6 +25,8 @@ function main(){
 	allUp();
 	if(run){
 		replay(goodMoves);
+	}else{
+		return returnData;
 	}
 }
 
@@ -47,9 +49,10 @@ function runAI(){
 		movesMade.push(new Move(-1, false));
 		getGoodMoves(movesMade);
 		allUp();
-		score();
+		returnData.push(movesMade);
+		currentIteration = currentIteration + 1;
 		//add new moves array to movesMade and increment index
-		sendKey = setTimeout("startNewGame()",500);
+		sendKey = setTimeout(function(){startNewGame(null);},500);
 	}else{
 		if (isLevel1()){
 			console.log("You died");
@@ -65,7 +68,6 @@ function runAI(){
 			console.log("YOU WIN!");
 			movesMade.push(new Move(-2, false));
 			clearInterval(sendKey);
-			score();
 			console.log('done');
 			sendKey = setTimeout("runAI()", 4000);
 		}else if (!isDiffTime()){
@@ -82,7 +84,13 @@ function runAI(){
 }
 
 //Called after game over has been reached.  Presses enter 10 times or until the first level hase been seen then calls main
-function startNewGame(){
+function startNewGame(mpdf){
+	if (mpdf != null){
+		currentHuer = mpdf;
+	}
+	if (currentIteration == iteration){
+		return returnData;
+	}
 	//if on level one start the main method after five seconds
 	if (isLevel1()){
 		console.log("New Game!");
@@ -94,7 +102,7 @@ function startNewGame(){
 		//press enter then release enter
 		Podium.keydown(13); 
 		setTimeout("Podium.keyup(13)",200);
-		setTimeout("startNewGame()", 250);
+		setTimeout(function(){startNewGame(null);}, 250);
 	}	
 }
 
