@@ -25,7 +25,11 @@ function startGenetic() {
 	}
 	MPDF_array.push(temp);
 	// Begin Loop
-	while(genetic){
+	geneticHelper();
+}
+
+function geneticHelper(){
+	if (genetic){
 		console.log("Main Genetic Loop");
 		var pop = MPDF_array[MPDF_array.length-1];
 		for (var i = 0; i < 4; i++){
@@ -38,9 +42,8 @@ function startGenetic() {
 		}
 		MPDF_array.push(printNew);
 		roundSequence= [];
-		//  to produce the new set of MPDF
+		geneticHelper();
 	}
-	// End Loop
 }
 
 function stopGenetic(){
