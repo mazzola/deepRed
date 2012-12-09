@@ -38,7 +38,7 @@ function replayMove(){
 			}else{
 				makeMove(null);
 			}
-			replyTimeout = setTimeout('replayMove()', 201);
+			replyTimeout = setTimeout('replayMove()', 200 + delay/10);
 		}
 	}
 }
