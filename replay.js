@@ -14,8 +14,9 @@ function replay(m){
 	stopReplay();
 	replayMove();
 }
-
+var delay = 0;
 function replayMove(){
+	delay = delay + 1;
 	if (replayMoves.length <= 16){
 		console.log("replay done");
 		clearInterval(sendKey);
@@ -37,7 +38,7 @@ function replayMove(){
 			}else{
 				makeMove(null);
 			}
-			replyTimeout = setTimeout('replayMove()', 200);
+			replyTimeout = setTimeout('replayMove()', 201);
 		}
 	}
 }
