@@ -17,7 +17,7 @@ function replay(m){
 var delay = 0;
 function replayMove(){
 	delay = delay + 1;
-	if (replayMoves.length <= 16){
+	if (replayMoves.length <= 24){
 		console.log("replay done");
 		clearInterval(sendKey);
 		setTimeout("runAI()", 200);
