@@ -34,6 +34,7 @@ function geneticHelper(){
 		console.log("Main Genetic Loop");
 		var pop = MPDF_array[MPDF_array.length-1];
 		currentIteration = 0;
+		goodMoves = [];
 		if (roundSequence.length < 4){
 			printMPDF(pop[roundSequence.length]);
 			startNewGame(pop[roundSequence.length]);
@@ -125,7 +126,7 @@ function fitness(sequence_array) {
 				case WIN:
 					score = score - 1000000000;
 				}
-				if (isMatch(move.pipe, sequence[i-1].pipe)) {
+				if (move != null && isMatch(move.pipe, sequence[i-1].pipe)) {
 					score = score + 100;
 				}
 			}
