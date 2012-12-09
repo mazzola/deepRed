@@ -58,17 +58,10 @@ function runAI(){
 			console.log("You died");
 			var last = movesMade.length-1;
 			var elem = movesMade[last];
-			var test;
-			if (isMatch(goodMoves,[])){
-				test = allMoves.shift();
-				while (test != null){
-					test = allMoves.shift();
-				}
-			}
 			allUp();
-			
 			if( elem == null || elem.move != -1){
 				movesMade.push(new Move(-1, false));
+				getMoves(6000);
 			}
 			allUp();
 			sendKey = setTimeout("runAI()", 4000);
@@ -105,7 +98,7 @@ function startNewGame(mpdf){
 		console.log("New Game!");
 		movesMade = [];
 		allUp();
-		getMoves(24000);
+		getMoves(6000);
 		sendKey = setTimeout("main()", 4000);
 	}else{
 		//press enter then release enter

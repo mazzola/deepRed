@@ -82,7 +82,7 @@ function fitness(sequence_array) {
 }
 
 function matingProbability(scores) {
-  matingProbabilities = []
+  matingProbabilities = [];
   total = 0;
   for (var i = 0; i < scores.length; i++) {
     total = total + scores[i];
@@ -96,7 +96,7 @@ function matingProbability(scores) {
 
 function createMatingPairs(matingProbability, population) {
   matingPairs[[]];
-  for (i = 0; i < matingProbability.length; i++) {
+  for (var i = 0; i < matingProbability.length; i++) {
     pair = [];
     pair.push(selectIndexWithPropability(matingProbability, population));
     pair.push(selectIndexWithPropability(matingProbability, population));
@@ -127,7 +127,7 @@ function mate(matingPairs) {
 
 function selectAndCrossover(matingPairs) {
   childrenPairs = [];
-  for (pair = 0; pair < matingPairs; pair++) {
+  for (var pair = 0; pair < matingPairs; pair++) {
     size = Object.keys(currentHuer).length;
     slice_index = Math.floor(Math.random() * size);
     parent1 = convertMPDFtoArray(pair[0]);
@@ -146,7 +146,7 @@ function mutate(population) {
 function convertMPDFtoArray(mpdf) {
   array = [];
   for (key in mpdf) {
-    array.push(mpdf[key])
+    array.push(mpdf[key]);
   }
   return array;
 }
