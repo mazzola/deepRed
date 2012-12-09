@@ -30,9 +30,6 @@ function startGenetic() {
 		var pop = MPDF_array[MPDF_array.length-1];
 		for (var i = 0; i < 4; i++){
 			startNewGame(pop[i]);
-			while(roundSequence.length == i){
-				setTimeout("", 100000);
-			}
 		}
 		//  Run the genetic algorithm on each set of 25
 		var printNew = geneticAlgorithm(roundSequence,MPDF_array);
