@@ -33,6 +33,7 @@ function geneticHelper(){
 	if (genetic){
 		console.log("Main Genetic Loop");
 		var pop = MPDF_array[MPDF_array.length-1];
+		currentIteration = 0;
 		if (roundSequence.length < 4){
 			printMPDF(pop[roundSequence.length]);
 			startNewGame(pop[roundSequence.length]);
