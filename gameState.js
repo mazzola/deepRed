@@ -28,6 +28,8 @@ moves = [KEY_LEFT,KEY_RIGHT,KEY_JUMP];
 down_left = false; //left arrow
 down_right = false; //right arrow 
 down_jump = false; //'x' jump
+prevTime = [];
+numTime = 0;
 
 //Array that stores arrays of moves that have been made
 movesMade = [];
@@ -49,6 +51,18 @@ function isLevel1(){
  */
 function isLevel2(){
 	return isMatch(lvl2, jQuery('.nes-screen')[0].getContext('2d').getImageData(153,80,6,6).data);
+}
+
+function isDiffTime(){
+	var now = jQuery('.nes-screen')[0].getContext('2d').getImageData(224,22,7,8).data;
+	if (!isMatch(prevTime, now)){
+		prevTime = now;
+		numTime = 0;
+		return true;
+	}else{
+		numTime = numTime + 1;
+		return numTime < 6;
+	}
 }
 
 /*
