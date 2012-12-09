@@ -7,6 +7,7 @@ jQuery.getScript('https://raw.github.com/mazzola/deepRed/master/gameState.js'); 
 jQuery.getScript('https://raw.github.com/mazzola/deepRed/master/utility.js'); //Utility functions
 jQuery.getScript('https://raw.github.com/mazzola/deepRed/master/AI.js'); //AI
 jQuery.getScript('https://raw.github.com/mazzola/deepRed/master/replay.js'); //replay
+jQuery.getScript('https://raw.github.com/mazzola/deepRed/master/winner.js'); //winner
 
 /** 
  * Create an interval timer that should never go off
@@ -18,9 +19,15 @@ sendKey = setTimeout("", 1000000000000);
  * MAIN METHOD
  * Clears the timeout interval so it can be used to incrementally fire moves
  */
+var run = true;
 function main(){
-	stop();
-	replay(goodMoves);
+	console.log("Start main loop");
+	allUp();
+	if(run){
+		replay(goodMoves);
+	}else{
+		return returnData;
+	}
 }
 
 /**
@@ -31,6 +38,7 @@ function main(){
 function stop(){
 	allUp();
 	clearTimeout(sendKey);
+	run = false;
 }
 
 //runs the ai checking for current game state
@@ -40,74 +48,69 @@ function runAI(){
 		console.log("Game Over");
 		movesMade.push(new Move(-1, false));
 		getGoodMoves(movesMade);
-		stop();
-		score();
+		allUp();
+		returnData.push(movesMade);
+		currentIteration = currentIteration + 1;
 		//add new moves array to movesMade and increment index
-		sendKey = setTimeout("startNewGame()",500);
+		sendKey = setTimeout(function(){startNewGame(null);},500);
 	}else{
 		if (isLevel1()){
 			console.log("You died");
 			var last = movesMade.length-1;
 			var elem = movesMade[last];
+			var test;
+			if (isMatch(goodMoves,[])){
+				test = allMoves.shift();
+				while (test != null){
+					test = allMoves.shift();
+				}
+			}
 			allUp();
-			if( elem.move != -1){
+			
+			if( elem == null || elem.move != -1){
 				movesMade.push(new Move(-1, false));
 			}
-			stop();
-			sendKey = setTimeout("replay(goodMoves)", 4000);
+			allUp();
+			sendKey = setTimeout("runAI()", 4000);
 		}else if (isLevel2()){
 			console.log("YOU WIN!");
 			movesMade.push(new Move(-2, false));
 			clearInterval(sendKey);
-			score();
 			console.log('done');
+			sendKey = setTimeout("runAI()", 4000);
+		}else if (!isDiffTime()){
+			console.log('Same Time!!!');
+			sendKey = setTimeout("runAI()", 200);
 		}else{
 			//With probabilty for the hueristic function see if one of the keys is released
-			genUp();
+			makeMove(allMoves.shift());
 			//makes a random move
-			makeMove(genMove());
+			makeMove(allMoves.shift());
 			sendKey = setTimeout("runAI()", 200);
 		}
 	}
 }
 
 //Called after game over has been reached.  Presses enter 10 times or until the first level hase been seen then calls main
-function startNewGame(){
+function startNewGame(mpdf){
+	if (mpdf != null){
+		currentHuer = mpdf;
+	}
+	if (currentIteration == iterations){
+		return returnData;
+	}
 	//if on level one start the main method after five seconds
 	if (isLevel1()){
+		console.log("Round: "+ currentIteration);
+		console.log("New Game!");
 		movesMade = [];
-		stop();
+		allUp();
+		getMoves(24000);
 		sendKey = setTimeout("main()", 4000);
 	}else{
 		//press enter then release enter
 		Podium.keydown(13); 
 		setTimeout("Podium.keyup(13)",200);
-		setTimeout("startNewGame()", 250);
+		setTimeout(function(){startNewGame(null);}, 250);
 	}	
-}
-
-/**
- * Function that sequence of moves from the longest life
- */
-function getGoodMoves(array){
-	var temp = [[]];
-	var whichArray = 0;
-	var max = [];
-	for(var i = 0; i < array.length; i++){
-		if(array[i] == null || array[i].move != -1){
-			temp[whichArray].push(array[i]);
-		}
-		else{
-			console.log("goodMoves next");
-			whichArray++;
-			temp.push([]);
-		}
-	}
-	max = temp[0];
-	for (var i = 1; i < moves.length; i++){
-		if (max.lenght < temp[i]){
-			max = moves[i];
-		}
-	}
-	goodMoves= max;
 }

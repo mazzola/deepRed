@@ -3,7 +3,8 @@
  * **/
 
 //test
-//replayMoves = [(null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_JUMP,true,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_JUMP,false,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_JUMP,true,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_JUMP,false,null)), (new Move(KEY_RIGHT,false,null)), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_JUMP,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_JUMP,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_JUMP,true,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (new Move(KEY_JUMP,false,null)), (new Move(KEY_JUMP,true,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_JUMP,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_JUMP,true,null)), (null), (new Move(KEY_RIGHT,true,null)), (new Move(KEY_JUMP,false,null)), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (new Move(KEY_RIGHT,false,null)), (new Move(KEY_JUMP,true,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_JUMP,false,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_JUMP,true,null)), (new Move(KEY_RIGHT,false,null)), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_RIGHT,true,null)), (null), (new Move(KEY_RIGHT,false,null)), (null), (new Move(KEY_JUMP,false,null)), (null), (new Move(KEY_RIGHT,true,null))];
+//replayMoves = [(null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(88,true,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(88,false,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(88,true,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(88,false,null)), (new Move(39,false,null)), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(88,true,null)), (null), (new Move(39,false,null)), (null), (new Move(88,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(88,true,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (new Move(88,false,null)), (new Move(88,true,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(88,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(88,true,null)), (null), (new Move(39,true,null)), (new Move(88,false,null)), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (new Move(39,false,null)), (new Move(88,true,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(88,false,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(88,true,null)), (new Move(39,false,null)), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(39,true,null)), (null), (new Move(39,false,null)), (null), (new Move(88,false,null)), (null), (new Move(39,true,null))];
+replayTimeout = setTimeout("", 10000000000);
 //function that replays
 function replay(m){
 	allUp();
@@ -11,32 +12,38 @@ function replay(m){
 		replayMoves = m;
 	}
 	stopReplay();
-	replayMove(0);
+	replayMove();
 }
 
-function replayMove(count){
-	var limit = replayMoves.length - 68;
-	if (count >= limit || isLevel1()){
+function replayMove(){
+	if (replayMoves.length <= 24){
 		console.log("replay done");
 		clearInterval(sendKey);
-		sendKey= setTimeout("runAI()", 10);
+		goodMoves = [];
+		setTimeout("runAI()", 200);
 	}else{
-		move1 = replayMoves[count];
-		move2 = replayMoves[count+1];
-		if (move1 != null){
-			makeMove(move1.move);
+		if (isLevel1()){
+			goodMoves = [];
+			console.log("level1");
+			runAI();
 		}else{
-			makeMove(null);
+			move1 = replayMoves.shift();
+			move2 = replayMoves.shift();
+			if (move1 != null){
+				makeMove(move1.move);
+			}else{
+				makeMove(null);
+			}
+			if (move2 != null){
+				makeMove(move2.move);
+			}else{
+				makeMove(null);
+			}
+			replyTimeout = setTimeout('replayMove()', 200);
 		}
-		if (move2 != null){
-			makeMove(move2.move);
-		}else{
-			makeMove(null);
-		}
-		sendKey = setTimeout(function(){replayMove(count+2);}, 200);
 	}
 }
 
 function stopReplay(){
-	clearTimeout(sendKey);
+	clearTimeout(replayTimeout);
 }

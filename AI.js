@@ -1,11 +1,12 @@
 //An array of the last good moves
 goodMoves = [];
+allMoves = [];
 
 
 /**
  * Huersitic Data
  */
-currentHuer = {right:.89,left:.01,jump:.10, jumpUp: .0025, leftUp: .995, rightUp: .0025};
+currentHuer = {right:.60,left:.001,jump:.399, jumpUp: .0025, leftUp: .995, rightUp: .0025};
 //where the hueristics, their final move sequence and score will be saved
 saveHuer = [];
 
@@ -47,33 +48,33 @@ function genUp(){
 	case KEY_LEFT:
 		//If it is being pressed fire a keyup
 		if (down_left){
-			makeMove(KEY_LEFT);
+			return KEY_LEFT;
 			break;
 		}
 		else{
-			makeMove(null);
+			return null;
 			break;
 		}
 		//Right arrow
 	case KEY_RIGHT:
 		//If it is being pressed fire a keyup
 		if (down_right){
-			makeMove(KEY_RIGHT);
+			return KEY_RIGHT;
 			break;
 		}
 		else{
-			makeMove(null);
+			return null;
 			break;
 		}
 		//Jump key (x)
 	case KEY_JUMP:
 		//If it is being pressed fire a keyup
 		if (down_jump){
-			makeMove(KEY_JUMP);
+			return KEY_JUMP;
 			break;
 		}
 		else{
-			makeMove(null);
+			return null;
 			break;
 		}
 	}
@@ -93,13 +94,13 @@ function makeMove(move){
 			//If it is being pressed fire a keyup with some probability
 			if (down_left){
 				down_left = false;
-				movesMade.push(new Move(KEY_LEFT, false, pipe));
+				movesMade.push(new Move(KEY_LEFT, false, getPipe()));
 				Podium.keyup(KEY_LEFT); 
 				break;
 			}//if it is not being pressed fire a keydown
 			else{ 
 				down_left = true;
-				movesMade.push(new Move(KEY_LEFT, true, pipe));
+				movesMade.push(new Move(KEY_LEFT, true, getPipe()));
 				Podium.keyup(KEY_LEFT); 
 				Podium.keydown(KEY_LEFT); 
 				break;
@@ -109,14 +110,14 @@ function makeMove(move){
 			//If it is being pressed fire a keyup
 			if (down_right){
 				down_right = false;
-				movesMade.push(new Move(KEY_RIGHT, false, pipe));
+				movesMade.push(new Move(KEY_RIGHT, false, getPipe()));
 				Podium.keyup(KEY_RIGHT); 
 				break;
 			}
 			//If it is not being pressed fire a keydown
 			else{
 				down_right = true;
-				movesMade.push(new Move(KEY_RIGHT, true, pipe));
+				movesMade.push(new Move(KEY_RIGHT, true, getPipe()));
 				Podium.keydown(KEY_RIGHT); 
 				break;
 			}
@@ -125,13 +126,13 @@ function makeMove(move){
 			//If it is being pressed fire a keyup
 			if (down_jump){
 				down_jump = false;
-				movesMade.push(new Move(KEY_JUMP, false, pipe));
+				movesMade.push(new Move(KEY_JUMP, false, getPipe()));
 				Podium.keyup(KEY_JUMP); 
 				break;
 			}//If it is not being pressed fire a keydown
 			else{
 				down_jump = true;
-				movesMade.push(new Move(KEY_JUMP, true, pipe));
+				movesMade.push(new Move(KEY_JUMP, true, getPipe()));
 				Podium.keydown(KEY_JUMP); 
 				break;
 			}
@@ -145,32 +146,41 @@ function makeMove(move){
 }
 
 /**
- * function that scores the current huersitic against the master the lower the score the better
+ * Function that sequence of moves from the longest life
  */
-function score(){
-	var score = 0;
-	var array = movesMade;
+function getGoodMoves(array){
+	var temp = [[]];
+	var whichArray = 0;
+	var max = [];
 	for(var i = 0; i < array.length; i++){
-		var temp = array[i];
-		if (temp != null){
-			switch(temp.move){
-			case KEY_LEFT:
-				score = score + 10;
-				break;
-			case KEY_RIGHT:
-				score = score + 1;
-				break;
-			case KEY_JUMP:
-				score = score + 2;
-				break;
-			case -1:
-				score = score + 100000;
-				break;
-			case -2:
-				i = array.length;
-				break;
-			}
+		if (array[i] != null && array[i].move == -2){
+			i = array.length;
+		}
+		if(array[i] == null || array[i].move != -1){
+			temp[whichArray].push(array[i]);
+		}
+		else{
+			console.log("goodMoves next " + i);
+			whichArray++;
+			temp.push([]);
 		}
 	}
-	saveHuer.push({moves:array, huer:currentHuer, score:score});
+	max = temp[0];
+	for (var i = 1; i < temp.length; i++){
+		console.log("Max length : " + max.length + " Temp length: " + temp[i].length);
+		if (max.length < temp[i].length){
+			max = temp[i];
+		}
+	}
+	goodMoves= max;
+}
+
+/**
+ * function that generates n moves 
+ **/
+function getMoves(n){
+	for (var i = 0; i < n; i++){
+		allMoves.push(genMove());
+		allMoves.push(genUp());
+	}
 }
