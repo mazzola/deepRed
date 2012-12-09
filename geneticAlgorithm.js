@@ -112,7 +112,7 @@ function fitness(sequence_array) {
 	score = 1000000000;
 	for (var s = 0; s < sequence_array.length; s++) {
 		sequence = sequence_array[s];
-		for (var i = 1; i < sequence.length; i++) {
+		for (var i = 2; i < sequence.length; i++) {
 			move = sequence[i];
 			if (move != null) {
 				switch(move.move){
@@ -126,7 +126,7 @@ function fitness(sequence_array) {
 				case WIN:
 					score = score - 1000000000;
 				}
-				if (move != null && isMatch(move.pipe, sequence[i-1].pipe)) {
+				if (move != null && sequence[i-2]!= null && isMatch(move.pipe, sequence[i-2].pipe)) {
 					score = score + 100;
 				}
 			}
