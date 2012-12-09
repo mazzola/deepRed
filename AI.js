@@ -146,32 +146,41 @@ function makeMove(move){
 }
 
 /**
- * function that scores the current huersitic against the master the lower the score the better
+ * Function that sequence of moves from the longest life
  */
-function score(){
-	var score = 0;
-	var array = movesMade;
+function getGoodMoves(array){
+	var temp = [[]];
+	var whichArray = 0;
+	var max = [];
 	for(var i = 0; i < array.length; i++){
-		var temp = array[i];
-		if (temp != null){
-			switch(temp.move){
-			case KEY_LEFT:
-				score = score + 10;
-				break;
-			case KEY_RIGHT:
-				score = score + 1;
-				break;
-			case KEY_JUMP:
-				score = score + 2;
-				break;
-			case -1:
-				score = score + 100000;
-				break;
-			case -2:
-				i = array.length;
-				break;
-			}
+		if (array[i] != null && array[i].move == -2){
+			i = array.length;
+		}
+		if(array[i] == null || array[i].move != -1){
+			temp[whichArray].push(array[i]);
+		}
+		else{
+			console.log("goodMoves next " + i);
+			whichArray++;
+			temp.push([]);
 		}
 	}
-	saveHuer.push({moves:array, huer:currentHuer, score:score});
+	max = temp[0];
+	for (var i = 1; i < temp.length; i++){
+		console.log("Max length : " + max.length + " Temp length: " + temp[i].length);
+		if (max.length < temp[i].length){
+			max = temp[i];
+		}
+	}
+	goodMoves= max;
+}
+
+/**
+ * function that generates n moves 
+ **/
+function getMoves(n){
+	for (var i = 0; i < n; i++){
+		allMoves.push(genMove());
+		allMoves.push(genUp());
+	}
 }

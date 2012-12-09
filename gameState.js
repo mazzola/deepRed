@@ -30,9 +30,13 @@ down_right = false; //right arrow
 down_jump = false; //'x' jump
 prevTime = [];
 numTime = 0;
+iterations = 50;
+currentIteration = 0;
+fitnessCount = 4;
 
 //Array that stores arrays of moves that have been made
 movesMade = [];
+returnData=[];
 
 /* 
  * Function that checks to see if a game over screen has been reached

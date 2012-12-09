@@ -2,5 +2,5 @@ winning = [(new Move(39,true,null)), (null), (new Move(39,false,null)), (null), 
 
 function winner(){
 	goodMoves = winning;
-	startNewGame();
+	startNewGame(null);
 }
