@@ -109,19 +109,10 @@ function fitness(sequence_array) {
 	score = 0;
 	for (var s = 0; s < sequence_array.length; s++) {
 		sequence = sequence_array[s];
-		for (var i = 0; i < sequence.length; i++) {
+		for (var i = 1; i < sequence.length; i++) {
 			move = sequence[i];
 			if (move != null) {
-				switch(move.move) {
-				case KEY_LEFT:
-					score = score + 100;
-					break;
-				case KEY_RIGHT:
-					score = score + 1;
-					break;
-				case KEY_JUMP:
-					score = score + 2;
-					break;
+				switch(move.move){
 				case DEATH:
 					score = score + 100000;
 					break;
@@ -130,8 +121,8 @@ function fitness(sequence_array) {
 					i = sequence.length;
 					break;
 				}
-				if (isMatch(move.pipe, pipe)) {
-					score = score + 10;
+				if (isMatch(move.pipe, sequence[i-1].pipe)) {
+					score = score + 100;
 				}
 			}
 		}

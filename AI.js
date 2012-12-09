@@ -172,7 +172,7 @@ function getGoodMoves(array){
 			max = temp[i];
 		}
 	}
-	goodMoves= max;
+	goodMoves= max.slice(0, 1000);
 }
 
 /**
