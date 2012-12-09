@@ -93,19 +93,20 @@ function startNewGame(mpdf){
 	if (currentIteration == iterations){
 		roundSequence.push(returnData);
 		geneticHelper();
-	}
-	//if on level one start the main method after five seconds
-	if (isLevel1()){
-		console.log("Round: "+ currentIteration);
-		console.log("New Game!");
-		movesMade = [];
-		allUp();
-		getMoves(6000);
-		sendKey = setTimeout("main()", 4000);
 	}else{
-		//press enter then release enter
-		Podium.keydown(13); 
-		setTimeout("Podium.keyup(13)",200);
-		setTimeout(function(){startNewGame(null);}, 250);
-	}	
+		//if on level one start the main method after five seconds
+		if (isLevel1()){
+			console.log("Round: "+ currentIteration);
+			console.log("New Game!");
+			movesMade = [];
+			allUp();
+			getMoves(6000);
+			sendKey = setTimeout("main()", 4000);
+		}else{
+			//press enter then release enter
+			Podium.keydown(13); 
+			setTimeout("Podium.keyup(13)",200);
+			setTimeout(function(){startNewGame(null);}, 250);
+		}	
+	}
 }
