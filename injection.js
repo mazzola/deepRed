@@ -88,7 +88,7 @@ function startNewGame(mpdf){
 	if (mpdf != null){
 		currentHuer = mpdf;
 	}
-	if (currentIteration == iteration){
+	if (currentIteration == iterations){
 		return returnData;
 	}
 	//if on level one start the main method after five seconds
