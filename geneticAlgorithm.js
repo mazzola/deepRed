@@ -35,6 +35,7 @@ function geneticHelper(){
 		var pop = MPDF_array[MPDF_array.length-1];
 		currentIteration = 0;
 		goodMoves = [];
+		returnData = [];
 		if (roundSequence.length < 4){
 			printMPDF(pop[roundSequence.length]);
 			startNewGame(pop[roundSequence.length]);
