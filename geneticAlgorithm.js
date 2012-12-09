@@ -14,6 +14,7 @@ jQuery.getScript('https://raw.github.com/mazzola/deepRed/master/utility.js'); //
 var MPDF_array = [];
 var genetic = true;
 function startGenetic() {
+	console.log("Starting Genetic");
 	// Randomly produce 4 MPDFs (global variables)
 	var temp = [];
 	for (var i = 0; i < 4; i++){
@@ -24,6 +25,7 @@ function startGenetic() {
 	MPDF_array.push(temp);
 	// Begin Loop
 	while(genetic){
+		console.log("Main Genetic Loop");
 		var results = [];
 		var pop = MPDF_array[MPDF_array.length-1];
 		for (var i = 0; i < 4; i++){
@@ -48,6 +50,7 @@ function stopGenetic(){
  * generates a MPDF
  */
 function generateMPDF(){
+	console.log("gen MPDF");
 	var array = [];
 	var total = 1;
 	while (array.length < 2){
@@ -67,7 +70,9 @@ function generateMPDF(){
 		}
 	}
 	array.push(total);
-	return convertArraytoMPDF(array);
+	var temp= convertArraytoMPDF(array);
+	printMPDF(temp);
+	return temp;
 }
 
 
@@ -76,6 +81,7 @@ function generateMPDF(){
  * Returns a new set of 4 MPDFs
  */
 function geneticAlgorithm(sequence_set, population) {
+	console.log("Starting Genetic algorithm calculations");
 	// Generate the scores for each sequence of moves
 	sequenceScores = [];
 	for (var i = 0; i < sequence_set.length; i++) {
@@ -94,6 +100,7 @@ GAME_OVER = 2;
  * of the set of sequences.
  */
 function fitness(sequence_array) {
+	console.log("Fittness");
 	score = 0;
 	for (var s = 0; s < sequence_array.length; s++) {
 		sequence = sequence_array[s];
@@ -128,6 +135,7 @@ function fitness(sequence_array) {
 }
 
 function matingProbability(scores) {
+	console.log("Mating Probabilites");
 	matingProbabilities = [];
 	total = 0;
 	for (var i = 0; i < scores.length; i++) {
@@ -141,6 +149,7 @@ function matingProbability(scores) {
 }
 
 function createMatingPairs(matingProbability, population) {
+	console.log("Mating Pairs");
 	matingPairs[[]];
 	for (var i = 0; i < matingProbability.length/2; i++) {
 		pair = [];
@@ -156,6 +165,7 @@ function createMatingPairs(matingProbability, population) {
  * of size n
  */
 function selectMPDFWithPropability(matingProbability, population) {
+	console.log("Select MPDF with probability");
 	threshold = Math.random();
 	index = 0;
 	cursor = matingProbability[0];
@@ -167,11 +177,13 @@ function selectMPDFWithPropability(matingProbability, population) {
 }
 
 function mate(matingPairs) {
+	console.log("MATE");
 	children = selectAndCrossover(matingPairs);
 	return mutate(children);
 }
 
 function selectAndCrossover(matingPairs) {
+	console.log("selectAndCrossOver");
 	childrenPairs = [];
 	for (var i = 0; i < matingPairs.length; i++) {
 		pair = matingPair.shift();
@@ -189,6 +201,7 @@ function selectAndCrossover(matingPairs) {
 }
 
 function mutate(population) {
+	console.log("Mutate");
 	var mutChance = .05;
 	var mutatedPopulation =[];
 	for (var i = 0; i < population.length; i++){
@@ -211,6 +224,7 @@ function mutate(population) {
 }
 
 function convertMPDFtoArray(mpdf) {
+	console.log("MPDF TO ARRAY");
 	array = [];
 	for (key in mpdf) {
 		array.push(mpdf[key]);
@@ -219,6 +233,7 @@ function convertMPDFtoArray(mpdf) {
 }
 
 function convertArraytoMPDF(array) {
+	console.log("ARRAY TO MPDF");
 	if (array.length == 6){
 		return {right:array[0],left:array[1],jump:array[2], jumpUp:array[3], leftUp:array[4], rightUp:array[5]};
 	}
@@ -226,6 +241,7 @@ function convertArraytoMPDF(array) {
 }
 
 function printMPDF(mpdf){
+	console.log("PRINT MPDF");
 	var str ="";
 	for (key in mpdf) {
 		str = str + ' ' + key + ': ' + mpdf[key];
