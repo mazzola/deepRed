@@ -70,13 +70,13 @@ function runAI(){
 			sendKey = setTimeout("runAI()", 4000);
 		}else if (!isDiffTime()){
 			console.log('Same Time!!!');
-			sendKey = setTimeout("runAI()", 300);
+			sendKey = setTimeout("runAI()", 200);
 		}else{
 			//With probabilty for the hueristic function see if one of the keys is released
 			makeMove(allMoves.shift());
 			//makes a random move
 			makeMove(allMoves.shift());
-			sendKey = setTimeout("runAI()", 300);
+			sendKey = setTimeout("runAI()", 200);
 		}
 	}
 }
