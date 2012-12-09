@@ -29,7 +29,7 @@ function startGenetic() {
 		var results = [];
 		var pop = MPDF_array[MPDF_array.length-1];
 		for (var i = 0; i < 4; i++){
-			results.push(startNewGame(pop));
+			results.push(startNewGame(pop[i]));
 		}
 		//  Run the genetic algorithm on each set of 25
 		var printNew = geneticAlgorithm(results,MPDF_array);
@@ -50,7 +50,6 @@ function stopGenetic(){
  * generates a MPDF
  */
 function generateMPDF(){
-	console.log("gen MPDF");
 	var array = [];
 	var total = 1;
 	while (array.length < 2){
@@ -74,7 +73,6 @@ function generateMPDF(){
 	array.push(total);
 	console.log(array.length);
 	var temp= convertArraytoMPDF(array);
-	printMPDF(temp);
 	return temp;
 }
 
@@ -236,7 +234,6 @@ function convertMPDFtoArray(mpdf) {
 }
 
 function convertArraytoMPDF(array) {
-	console.log("ARRAY TO MPDF");
 	if (array.length == 6){
 		return {right:array[0],left:array[1],jump:array[2], jumpUp:array[3], leftUp:array[4], rightUp:array[5]};
 	}
@@ -244,7 +241,6 @@ function convertArraytoMPDF(array) {
 }
 
 function printMPDF(mpdf){
-	console.log("PRINT MPDF");
 	var str ="";
 	for (key in mpdf) {
 		str = str + ' ' + key + ': ' + mpdf[key];
