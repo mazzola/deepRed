@@ -153,7 +153,7 @@ function matingProbability(scores) {
 function createMatingPairs(matingProbability, population) {
 	console.log("Mating Pairs");
 	matingPairs=[];
-	for (var i = 0; i < matingProbability.length/2+1; i++) {
+	for (var i = 0; i < matingProbability.length/2; i++) {
 		pair = [];
 		pair.push(selectMPDFWithPropability(matingProbability, population));
 		pair.push(selectMPDFWithPropability(matingProbability, population));
