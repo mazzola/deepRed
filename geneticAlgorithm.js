@@ -128,7 +128,7 @@ function fitness(sequence_array) {
 					score = score - 1000000000;
 				}
 				if (move != null && sequence[i-2] != null && isMatch(move.pipeCheck, sequence[i-2].pipeCheck)) {
-					score = score + 100;
+					score = score + 10;
 				}
 			}
 		}
@@ -188,7 +188,7 @@ function selectAndCrossover(matingPairs) {
 	console.log("selectAndCrossOver");
 	childrenPairs = [];
 	for (var i = 0; i < matingPairs.length; i++) {
-		pair = matingPair.shift();
+		pair = matingPairs.shift();
 		size = Object.keys(currentHuer).length;
 		slice_index = Math.floor(Math.random() * size);
 		parent1 = convertMPDFtoArray(pair[0]);
