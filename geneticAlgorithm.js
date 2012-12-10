@@ -153,7 +153,7 @@ function matingProbability(scores) {
 function createMatingPairs(matingProbability, population) {
 	console.log("Mating Pairs");
 	matingPairs=[];
-	for (var i = 0; i < matingProbability.length/2; i++) {
+	for (var i = 0; i < matingProbability.length/2+1; i++) {
 		pair = [];
 		pair.push(selectMPDFWithPropability(matingProbability, population));
 		pair.push(selectMPDFWithPropability(matingProbability, population));
@@ -188,7 +188,7 @@ function selectAndCrossover(matingPairs) {
 	console.log("selectAndCrossOver");
 	childrenPairs = [];
 	for (var i = 0; i < matingPairs.length; i++) {
-		pair = matingPairs.shift();
+		pair = matingPairs[i];
 		size = Object.keys(currentHuer).length;
 		slice_index = Math.floor(Math.random() * size);
 		parent1 = convertMPDFtoArray(pair[0]);
@@ -223,6 +223,7 @@ function mutate(population) {
 		}
 		mutatedPopulation.push(convertArraytoMPDF(mpdf));
 	}
+	return mutatedPopulation;
 }
 
 function convertMPDFtoArray(mpdf) {
