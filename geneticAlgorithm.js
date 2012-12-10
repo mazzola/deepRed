@@ -251,6 +251,20 @@ function convertMPDFtoArray(mpdf) {
 }
 
 function convertArraytoMPDF(array) {
+	total =0;
+	for (var i = 0; i < 3; i++){
+		total = total + array[i];
+	}
+	for (var i = 0; i < 3; i++){
+		array[i] = array[i]/total;
+	}
+	total =0;
+	for (var i = 3; i < 6; i++){
+		total = total + array[i];
+	}
+	for (var i = 3; i < 6; i++){
+		array[i] = array[i]/total;
+	}
 	if (array.length == 6){
 		return {right:array[0],left:array[1],jump:array[2], jumpUp:array[3], leftUp:array[4], rightUp:array[5]};
 	}
