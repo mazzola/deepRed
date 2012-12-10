@@ -97,7 +97,7 @@ function geneticAlgorithm(sequence_set, population) {
 	}
 	console.log(sequenceScores.length);
 	matingProb = matingProbability(sequenceScores);
-	matingPairs = createMatingPairs(matingProbability, population);
+	matingPairs = createMatingPairs(matingProb, population);
 	return mate(matingPairs);
 }
 
@@ -160,13 +160,13 @@ function matingProbability(scores) {
 	return matingProbabilities;
 }
 
-function createMatingPairs(matingProbability, population) {
+function createMatingPairs(matingProb, population) {
 	console.log("Mating Pairs");
 	matingPairs=[];
-	for (var i = 0; i < matingProbability.length/2; i++) {
+	for (var i = 0; i < matingProb.length/2; i++) {
 		pair = [];
-		pair.push(selectMPDFWithPropability(matingProbability, population));
-		pair.push(selectMPDFWithPropability(matingProbability, population));
+		pair.push(selectMPDFWithPropability(matingProb, population));
+		pair.push(selectMPDFWithPropability(matingProb, population));
 		matingPairs.push(pair);
 	}
 	return matingPairs;
@@ -176,14 +176,14 @@ function createMatingPairs(matingProbability, population) {
  * Selects an index from 0..n based on a probability array
  * of size n
  */
-function selectMPDFWithPropability(matingProbability, population) {
+function selectMPDFWithPropability(matingProb, population) {
 	console.log("Select MPDF with probability");
 	threshold = Math.random();
 	index = 0;
-	cursor = matingProbability[0];
+	cursor = matingProb[0];
 	while (cursor < threshold) {
 		index = index + 1;
-		cursor = cursor + matingProbability[index]; 
+		cursor = cursor + matingProb[index]; 
 	}
 	return population[index];
 }
