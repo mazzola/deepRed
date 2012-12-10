@@ -41,7 +41,7 @@ function geneticHelper(){
 			startNewGame(pop[roundSequence.length]);
 		}else{
 			//  Run the genetic algorithm on each set of 25
-			var printNew = geneticAlgorithm(roundSequence,MPDF_array);
+			var printNew = geneticAlgorithm(roundSequence,pop);
 			for (var i = 0; i < printNew.length; i++){
 				printMPDF(printNew[i]);
 			}
