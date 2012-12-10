@@ -95,6 +95,7 @@ function geneticAlgorithm(sequence_set, population) {
 	for (var i = 0; i < sequence_set.length; i++) {
 		sequenceScores.push(fitness(sequence_set[i]));
 	}
+	console.log(sequenceScores.length);
 	matingProb = matingProbability(sequenceScores);
 	matingPairs = createMatingPairs(matingProbability, population);
 	return mate(matingPairs);
@@ -152,6 +153,7 @@ function matingProbability(scores) {
 		total = total + matingProbabilities[i];
 	}
 	for (var i = 0; i < scores.length; i++) { 
+		console.log("FIXING PROBS");
 		probability = (matingProbabilities[i]) / total;
 		matingProbabilities[i] =(probability);
 	}
