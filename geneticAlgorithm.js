@@ -95,7 +95,7 @@ function geneticAlgorithm(sequence_set, population) {
 	for (var i = 0; i < sequence_set.length; i++) {
 		sequenceScores.push(fitness(sequence_set[i]));
 	}
-	matingProbability = matingProbability(sequenceScores);
+	matingProb = matingProbability(sequenceScores);
 	matingPairs = createMatingPairs(matingProbability, population);
 	return mate(matingPairs);
 }
@@ -143,9 +143,17 @@ function matingProbability(scores) {
 	for (var i = 0; i < scores.length; i++) {
 		total = total + scores[i];
 	}
-	for (var i = 0; i < scores.length; i++) {
+	for (var i = 0; i < scores.length; i++) { 
 		probability = (total - scores[i]) / total;
 		matingProbabilities.push(probability);
+	}
+	total = 0;
+	for (var i = 0; i < scores.length; i++) {
+		total = total + matingProbabilities[i];
+	}
+	for (var i = 0; i < scores.length; i++) { 
+		probability = (matingProbabilities[i]) / total;
+		matingProbabilities[i] =(probability);
 	}
 	return matingProbabilities;
 }
@@ -204,13 +212,19 @@ function selectAndCrossover(matingPairs) {
 
 function mutate(population) {
 	console.log("Mutate");
-	var mutChance = .05;
+	var mutChance = .01;
 	var mutatedPopulation =[];
 	for (var i = 0; i < population.length; i++){
 		var mpdf = population[i];
+		least = 1;
+		for (var j = 0; j < mpdf.length; j++){
+			if (least > mpdf[j]){
+				least = mpdf[j];
+			}
+		}
 		var chance = Math.random();
 		var mutIndex = Math.floor(Math.random()*mpdf.length);
-		var mutAmount = Math.random()*15;
+		var mutAmount = Math.random()*least;
 		var subAmount = mutAmount/(mpdf.length - 1);
 		if (chance < mutChance){
 			for (var j = 0; j < mpdf.length; j++){
