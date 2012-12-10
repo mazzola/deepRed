@@ -112,6 +112,7 @@ WIN = -2;
 function fitness(sequence_array) {
 	console.log("Fittness");
 	score = 1000000000;
+	wins = 0;
 	for (var s = 0; s < sequence_array.length; s++) {
 		sequence = sequence_array[s];
 		for (var i = 2; i < sequence.length; i++) {
@@ -127,6 +128,7 @@ function fitness(sequence_array) {
 					break;
 				case WIN:
 					score = score - 1000000000;
+					wins = wins + 1;
 				}
 				if (move != null && sequence[i-2] != null && isMatch(move.pipeCheck, sequence[i-2].pipeCheck)) {
 					score = score + 10;
@@ -134,6 +136,7 @@ function fitness(sequence_array) {
 			}
 		}
 	}
+	console.log("AVE SCORE " + score + " WINS " + wins);
 	return score/sequence_array.length;
 }
 
