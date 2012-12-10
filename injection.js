@@ -88,7 +88,6 @@ function runAI(){
 //Called after game over has been reached.  Presses enter 10 times or until the first level hase been seen then calls main
 function startNewGame(mpdf){
 	if (mpdf != null){
-		console.log("PRINTING MPDF");
 		currentHuer = mpdf;
 	}
 	if (currentIteration == iterations){
