@@ -47,7 +47,7 @@ function runAI(){
 	//is a game over 
 	if (isGameOver()){
 		console.log("Game Over");
-		movesMade.push(new Move(-1, false));
+		movesMade.push(new Move(-1, false, getPipe()));
 		getGoodMoves(movesMade);
 		allUp();
 		returnData.push(movesMade);
@@ -61,14 +61,14 @@ function runAI(){
 			var elem = movesMade[last];
 			allUp();
 			if( elem == null || elem.move != -1){
-				movesMade.push(new Move(-1, false));
+				movesMade.push(new Move(-1, false, getPipe()));
 				getMoves(6000);
 			}
 			allUp();
 			sendKey = setTimeout("runAI()", 4000);
 		}else if (isLevel2()){
 			console.log("YOU WIN!");
-			movesMade.push(new Move(-2, false));
+			movesMade.push(new Move(-2, false, getPipe()));
 			clearInterval(sendKey);
 			console.log('done');
 			sendKey = setTimeout("runAI()", 4000);
