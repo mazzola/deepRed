@@ -19,7 +19,7 @@ function startGenetic() {
 	console.log("Starting Genetic");
 	// Randomly produce 4 MPDFs (global variables)
 	var temp = [];
-	for (var i = 0; i < 4; i++){
+	for (var i = 0; i < 8; i++){
 		var mpdf = generateMPDF();
 		printMPDF(mpdf);
 		temp.push(mpdf);
@@ -36,7 +36,7 @@ function geneticHelper(){
 		currentIteration = 0;
 		goodMoves = [];
 		returnData = [];
-		if (roundSequence.length < 4){
+		if (roundSequence.length < pop.length){
 			printMPDF(pop[roundSequence.length]);
 			startNewGame(pop[roundSequence.length]);
 		}else{
@@ -133,10 +133,13 @@ function fitness(sequence_array) {
 				if (move != null && sequence[i-2] != null && isMatch(move.pipeCheck, sequence[i-2].pipeCheck)) {
 					score = score + 10;
 				}
+				if (!isMatch(move.pipeCheck, sequence[i-2].pipeCheck)) {
+					score = score - 40;
+				}
 			}
 		}
 	}
-	console.log("AVE SCORE " + score + " WINS " + wins);
+	console.log("AVE SCORE " + score + " sWINS " + wins);
 	return score/sequence_array.length;
 }
 
