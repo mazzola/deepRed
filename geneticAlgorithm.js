@@ -134,7 +134,7 @@ function fitness(sequence_array) {
 					score = score + 10;
 				}
 				if (!isMatch(move.pipeCheck, sequence[i-2].pipeCheck)) {
-					score = score - 40;
+					score = score - 50;
 				}
 			}
 		}
