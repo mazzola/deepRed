@@ -208,11 +208,13 @@ function selectAndCrossover(matingPairs) {
 		size = Object.keys(currentHuer).length;
 		slice_index1 = Math.floor(Math.random() * size/2);
 		slice_index2 = Math.floor(Math.random() * size/2 + size/2);
+		console.log("indexs : "+slice_index1 + " i2: " + slice_index2);
 		parent1 = convertMPDFtoArray(pair[0]);
 		parent2 = convertMPDFtoArray(pair[1]);
 		// Create children values
 		child1 = parent1.slice(0, slice_index1).concat(parent2.slice(slice_index1, size/2)).concat(parent1.slice(size/2 , slice_index2)).concat(parent2.slice(slice_index2));
 		child2 = parent2.slice(0, slice_index1).concat(parent1.slice(slice_index1, size/2)).concat(parent2.slice(size/2 , slice_index2)).concat(parent1.slice(slice_index2));
+		return child1;
 		childrenPairs.push(child1);
 		childrenPairs.push(child2);
 	}
