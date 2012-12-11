@@ -131,9 +131,14 @@ function getGoodMoves(array){
 	var temp = [[]];
 	var whichArray = 0;
 	var max = [];
+	count = 0.0;
+	var moveCount = [];
 	for(var i = 0; i < array.length; i++){
 		if (array[i] != null && array[i].move == -2){
 			i = array.length;
+		}
+		if(array[i] != null && array[i].move != 0){
+			count = count + 1.0;
 		}
 		if(array[i] == null || array[i].move != -1){
 			temp[whichArray].push(array[i]);
@@ -141,14 +146,17 @@ function getGoodMoves(array){
 		else{
 			console.log("goodMoves next " + i);
 			whichArray++;
+			moveCount.push(count);
 			temp.push([]);
 		}
 	}
 	max = temp[0];
-	for (var i = 1; i < temp.length; i++){
+	var oldCount = moveCount[0]/max.length;
+	for (var i = 1; i < moveCount.length; i++){
 		console.log("Max length : " + max.length + " Temp length: " + temp[i].length);
-		if (max.length < temp[i].length){
+		if (oldCount < (moveCount[i]/temp[i].length)){
 			max = temp[i];
+			oldCount= moveCount[i]/temp[i].length;
 		}
 	}
 	goodMoves= max.slice(0, 1000);
