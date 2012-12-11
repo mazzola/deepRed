@@ -120,7 +120,7 @@ function fitness(sequence_array) {
 			if (move != null) {
 				switch(move.move){
 				case DEATH:
-					score = score - 100;
+					score = score - 20;
 					break;
 				case GAME_OVER:
 					score = score - 100;
