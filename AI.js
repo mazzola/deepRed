@@ -34,6 +34,7 @@ function genMove(){
 function genUp(){
 	//chooses a random value
 	var value = Math.random();
+	console.log(value);
 	//interperts the directions which value corresponds to
 	var right = currentHuer.rightUp;
 	var left = right + currentHuer.leftUp;
@@ -166,6 +167,7 @@ function getGoodMoves(array){
  * function that generates n moves 
  **/
 function getMoves(n){
+	allMoves = [];
 	for (var i = 0; i < n; i++){
 		allMoves.push(genMove());
 		allMoves.push(genUp());
