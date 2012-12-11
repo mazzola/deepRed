@@ -105,7 +105,7 @@ function makeMove(move){
 				Podium.keyup(KEY_JUMP); 
 				break;
 			}//If it is not being pressed fire a keydown
-			else if (!down_jump & move.dir){
+			else if (!down_jump && move.dir){
 				down_jump = true;
 				movesMade.push(new Move(KEY_JUMP, true, getPipe()));
 				Podium.keydown(KEY_JUMP); 
