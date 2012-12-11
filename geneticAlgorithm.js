@@ -14,6 +14,8 @@ jQuery.getScript('https://raw.github.com/mazzola/deepRed/master/utility.js'); //
 var MPDF_array = [];
 var genetic = true;
 var roundSequence = [];
+var tempChild1 = [];
+var tempChild2 = [];
 
 function startGenetic() {
 	console.log("Starting Genetic");
@@ -208,6 +210,7 @@ function selectAndCrossover(matingPairs) {
 		size = Object.keys(currentHuer).length;
 		slice_index1 = Math.floor(Math.random() * size/2);
 		slice_index2 = Math.floor(Math.random() * size/2 + size/2);
+		console.log("indexs : "+slice_index1 + " i2: " + slice_index2);
 		parent1 = convertMPDFtoArray(pair[0]);
 		parent2 = convertMPDFtoArray(pair[1]);
 		// Create children values
@@ -215,6 +218,8 @@ function selectAndCrossover(matingPairs) {
 		child2 = parent2.slice(0, slice_index1).concat(parent1.slice(slice_index1, size/2)).concat(parent2.slice(size/2 , slice_index2)).concat(parent1.slice(slice_index2));
 		childrenPairs.push(child1);
 		childrenPairs.push(child2);
+		tempChild1.push(child1);
+		tempChild2.push(child2);
 	}
 	return childrenPairs;
 }
@@ -227,14 +232,14 @@ function mutate(population) {
 		var mpdf = population[i];
 		var least1 = 1;
 		for (var j = 0; j < mpdf.length/2; j++){
-			if (least > mpdf[j]){
-				least = mpdf[j];
+			if (least1 > mpdf[j]){
+				least1 = mpdf[j];
 			}
 		}
 		var least2 = 1;
 		for (var j = 3; j < mpdf.length; j++){
-			if (least > mpdf[j]){
-				least = mpdf[j];
+			if (least2 > mpdf[j]){
+				least2 = mpdf[j];
 			}
 		}
 		var chance1 = Math.random();
