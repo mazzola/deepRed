@@ -206,12 +206,13 @@ function selectAndCrossover(matingPairs) {
 	for (var i = 0; i < matingPairs.length; i++) {
 		pair = matingPairs[i];
 		size = Object.keys(currentHuer).length;
-		slice_index = Math.floor(Math.random() * size);
+		slice_index1 = Math.floor(Math.random() * size/2);
+		slice_index2 = Math.floor(Math.random() * size/2 + size/2);
 		parent1 = convertMPDFtoArray(pair[0]);
 		parent2 = convertMPDFtoArray(pair[1]);
 		// Create children values
-		child1 = parent1.slice(0, slice_index).concat(parent2.slice(slice_index));
-		child2 = parent2.slice(0, slice_index).concat(parent1.slice(slice_index));
+		child1 = parent1.slice(0, slice_index1).concat(parent2.slice(slice_index1, size/2)).concat(parent1.slice(size/2 , slice_index2)).concat(parent2.slice(slice_index2));
+		child2 = parent2.slice(0, slice_index1).concat(parent1.slice(slice_index1, size/2)).concat(parent2.slice(size/2 , slice_index2)).concat(parent1.slice(slice_index2));
 		childrenPairs.push(child1);
 		childrenPairs.push(child2);
 	}
@@ -224,22 +225,41 @@ function mutate(population) {
 	var mutatedPopulation =[];
 	for (var i = 0; i < population.length; i++){
 		var mpdf = population[i];
-		least = 1;
-		for (var j = 0; j < mpdf.length; j++){
+		var least1 = 1;
+		for (var j = 0; j < mpdf.length/2; j++){
 			if (least > mpdf[j]){
 				least = mpdf[j];
 			}
 		}
-		var chance = Math.random();
-		var mutIndex = Math.floor(Math.random()*mpdf.length);
-		var mutAmount = Math.random()*least;
-		var subAmount = mutAmount/(mpdf.length - 1);
-		if (chance < mutChance){
-			for (var j = 0; j < mpdf.length; j++){
-				if (j == mutIndex){
-					mpdf[j] = mpdf[j] + mutAmount;
+		var least2 = 1;
+		for (var j = 3; j < mpdf.length; j++){
+			if (least > mpdf[j]){
+				least = mpdf[j];
+			}
+		}
+		var chance1 = Math.random();
+		var chance2 = Math.random();
+		var mutIndex1 = Math.floor(Math.random()*mpdf.length/2);
+		var mutIndex2 = Math.floor(Math.random()*mpdf.length/2);
+		var mutAmount1 = Math.random()*least1;
+		var mutAmount2 = Math.random()*least2;
+		var subAmount1 = mutAmount1/(mpdf.length/2 - 1);
+		var subAmount2 = mutAmount2/(mpdf.length/2 - 1);
+		if (chance1 < mutChance){
+			for (var j = 0; j < mpdf.length/2; j++){
+				if (j == mutIndex1){
+					mpdf[j] = mpdf[j] + mutAmount1;
 				}else{
-					mpdf[j] = mpdf[j] - subAmount;
+					mpdf[j] = mpdf[j] - subAmount1;
+				}
+			}
+		}
+		if (chance2 < mutChance){
+			for (var j = 3; j < mpdf.length; j++){
+				if (j == mutIndex2){
+					mpdf[j] = mpdf[j] + mutAmount2;
+				}else{
+					mpdf[j] = mpdf[j] - subAmount2;
 				}
 			}
 		}
