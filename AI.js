@@ -77,7 +77,6 @@ function makeMove(move){
 			}
 			//Right arrow
 		case KEY_RIGHT:
-			console.log("test");
 			//If it is being pressed fire a keyup
 			if (down_right && !move.dir){
 				down_right = false;
@@ -87,6 +86,7 @@ function makeMove(move){
 			}
 			//If it is not being pressed fire a keydown
 			else if (!down_right && move.dir){
+				console.log("test");
 				down_right = true;
 				movesMade.push(new Move(KEY_RIGHT, true, getPipe()));
 				Podium.keydown(KEY_RIGHT); 
