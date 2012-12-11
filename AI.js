@@ -73,7 +73,7 @@ function makeMove(move){
 				break;
 			}
 			else{
-				movesMade.push(newMove(0,false,getPipe()));
+				movesMade.push(new Move(0,false,getPipe()));
 			}
 			//Right arrow
 		case KEY_RIGHT:
@@ -92,7 +92,7 @@ function makeMove(move){
 				break;
 			}
 			else{
-				movesMade.push(newMove(0,false,getPipe()));
+				movesMade.push(new Move(0,false,getPipe()));
 			}
 			//Jump key (x)
 		case KEY_JUMP:
@@ -110,7 +110,7 @@ function makeMove(move){
 				break;
 			}
 			else{
-				movesMade.push(newMove(0,false,getPipe()));
+				movesMade.push(new Move(0,false,getPipe()));
 			}
 		}
 	}
