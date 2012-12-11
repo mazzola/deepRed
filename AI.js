@@ -159,6 +159,17 @@ function getGoodMoves(array){
 			oldCount= moveCount[i]/temp[i].length;
 		}
 	}
+	var count = 0;
+	goodMoves = [];
+	for(var i = max.length-1; i> -1; i--){
+		if (count < 5){
+			if (max[i] != null || max[i].move !=0){
+				count = count +1;
+			}
+		}else{
+			goodMoves.unshift(max[i]);
+		}
+	}
 	goodMoves= max.slice(0, 1000);
 }
 
