@@ -74,6 +74,7 @@ function makeMove(move){
 			}
 			else{
 				movesMade.push(new Move(0,false,getPipe()));
+				break;
 			}
 			//Right arrow
 		case KEY_RIGHT:
@@ -86,7 +87,6 @@ function makeMove(move){
 			}
 			//If it is not being pressed fire a keydown
 			else if (!down_right && move.dir){
-				console.log("test");
 				down_right = true;
 				movesMade.push(new Move(KEY_RIGHT, true, getPipe()));
 				Podium.keydown(KEY_RIGHT); 
@@ -94,6 +94,7 @@ function makeMove(move){
 			}
 			else{
 				movesMade.push(new Move(0,false,getPipe()));
+				break;
 			}
 			//Jump key (x)
 		case KEY_JUMP:
@@ -112,6 +113,7 @@ function makeMove(move){
 			}
 			else{
 				movesMade.push(new Move(0,false,getPipe()));
+				break;
 			}
 		}
 	}
