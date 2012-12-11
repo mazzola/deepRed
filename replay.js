@@ -30,12 +30,12 @@ function replayMove(){
 			move1 = replayMoves.shift();
 			move2 = replayMoves.shift();
 			if (move1 != null){
-				makeMove(move1.move);
+				makeMove(move1);
 			}else{
 				makeMove(null);
 			}
 			if (move2 != null){
-				makeMove(move2.move);
+				makeMove(move2);
 			}else{
 				makeMove(null);
 			}
