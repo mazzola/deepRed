@@ -14,6 +14,8 @@ jQuery.getScript('https://raw.github.com/mazzola/deepRed/master/utility.js'); //
 var MPDF_array = [];
 var genetic = true;
 var roundSequence = [];
+var tempChild1 = [];
+var tempChild2 = [];
 
 function startGenetic() {
 	console.log("Starting Genetic");
@@ -214,9 +216,10 @@ function selectAndCrossover(matingPairs) {
 		// Create children values
 		child1 = parent1.slice(0, slice_index1).concat(parent2.slice(slice_index1, size/2)).concat(parent1.slice(size/2 , slice_index2)).concat(parent2.slice(slice_index2));
 		child2 = parent2.slice(0, slice_index1).concat(parent1.slice(slice_index1, size/2)).concat(parent2.slice(size/2 , slice_index2)).concat(parent1.slice(slice_index2));
-		return child1;
 		childrenPairs.push(child1);
 		childrenPairs.push(child2);
+		tempChild1.push(child1);
+		tempChild2.push(child2);
 	}
 	return childrenPairs;
 }
