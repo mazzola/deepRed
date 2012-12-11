@@ -53,7 +53,7 @@ function genUp(){
  */
 function makeMove(move){
 	//picks a move using the hueristic function as a base
-	if (move == null) movesMade.push(move);
+	if (move == null || move.move == 0) movesMade.push(new Move(0,false,getPipe()));
 	else{
 		switch(move.move){
 		//left arrow
@@ -73,7 +73,7 @@ function makeMove(move){
 				break;
 			}
 			else{
-				movesMade.push(null);
+				movesMade.push(newMove(0,false,getPipe()));
 			}
 			//Right arrow
 		case KEY_RIGHT:
@@ -92,7 +92,7 @@ function makeMove(move){
 				break;
 			}
 			else{
-				movesMade.push(null);
+				movesMade.push(newMove(0,false,getPipe()));
 			}
 			//Jump key (x)
 		case KEY_JUMP:
@@ -110,7 +110,7 @@ function makeMove(move){
 				break;
 			}
 			else{
-				movesMade.push(null);
+				movesMade.push(newMove(0,false,getPipe()));
 			}
 		}
 	}
