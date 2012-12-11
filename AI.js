@@ -162,7 +162,7 @@ function getGoodMoves(array){
 	var count = 0;
 	goodMoves = [];
 	for(var i = max.length-1; i> -1; i--){
-		if (count < 14){
+		if (count < 16){
 			if (max[i] != null || max[i].move !=0){
 				count = count +1;
 			}
