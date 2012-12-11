@@ -25,7 +25,7 @@ function genMove(){
 	}else{
 		move= KEY_JUMP;
 	}
-	return new Move(move,true, null);
+	return new Move(move,true,null);
 }
 
 /**Function that uses the heursitic to determine if a key up event should be fired
@@ -44,7 +44,7 @@ function genUp(){
 	}else{
 		move = KEY_JUMP;
 	}
-	return new Move(move, false,null);
+	return new Move(move,false,null);
 
 }
 
@@ -77,6 +77,7 @@ function makeMove(move){
 			}
 			//Right arrow
 		case KEY_RIGHT:
+			console.log("test");
 			//If it is being pressed fire a keyup
 			if (down_right && !move.dir){
 				down_right = false;
