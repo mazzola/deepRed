@@ -34,7 +34,6 @@ function genMove(){
 function genUp(){
 	//chooses a random value
 	var value = Math.random();
-	console.log(value);
 	//interperts the directions which value corresponds to
 	var right = currentHuer.rightUp;
 	var left = right + currentHuer.leftUp;
