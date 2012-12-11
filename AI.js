@@ -170,7 +170,6 @@ function getGoodMoves(array){
 			goodMoves.unshift(max[i]);
 		}
 	}
-	goodMoves= max.slice(0, 1000);
 }
 
 /**
