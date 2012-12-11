@@ -19,12 +19,13 @@ function genMove(){
 	var right = currentHuer.right;
 	var left = right + currentHuer.left;
 	if (value < right){
-		return KEY_RIGHT;
+		move= KEY_RIGHT;
 	}else if (value < left){
-		return KEY_LEFT;
+		move= KEY_LEFT;
 	}else{
-		return KEY_JUMP;
+		move= KEY_JUMP;
 	}
+	return new Move(move,true, null);
 }
 
 /**Function that uses the heursitic to determine if a key up event should be fired
@@ -43,41 +44,7 @@ function genUp(){
 	}else{
 		move = KEY_JUMP;
 	}
-	switch(move){
-	//left arrow
-	case KEY_LEFT:
-		//If it is being pressed fire a keyup
-		if (down_left){
-			return KEY_LEFT;
-			break;
-		}
-		else{
-			return null;
-			break;
-		}
-		//Right arrow
-	case KEY_RIGHT:
-		//If it is being pressed fire a keyup
-		if (down_right){
-			return KEY_RIGHT;
-			break;
-		}
-		else{
-			return null;
-			break;
-		}
-		//Jump key (x)
-	case KEY_JUMP:
-		//If it is being pressed fire a keyup
-		if (down_jump){
-			return KEY_JUMP;
-			break;
-		}
-		else{
-			return null;
-			break;
-		}
-	}
+	return new Move(move, false,null);
 
 }
 
@@ -88,53 +55,62 @@ function makeMove(move){
 	//picks a move using the hueristic function as a base
 	if (move == null) movesMade.push(move);
 	else{
-		switch(move){
+		switch(move.move){
 		//left arrow
 		case KEY_LEFT:
 			//If it is being pressed fire a keyup with some probability
-			if (down_left){
+			if (down_left && !move.dir){
 				down_left = false;
 				movesMade.push(new Move(KEY_LEFT, false, getPipe()));
 				Podium.keyup(KEY_LEFT); 
 				break;
 			}//if it is not being pressed fire a keydown
-			else{ 
+			else if(!down_left && move.dir){ 
 				down_left = true;
 				movesMade.push(new Move(KEY_LEFT, true, getPipe()));
 				Podium.keyup(KEY_LEFT); 
 				Podium.keydown(KEY_LEFT); 
 				break;
 			}
+			else{
+				movesMade.push(null);
+			}
 			//Right arrow
 		case KEY_RIGHT:
 			//If it is being pressed fire a keyup
-			if (down_right){
+			if (down_right && !move.dir){
 				down_right = false;
 				movesMade.push(new Move(KEY_RIGHT, false, getPipe()));
 				Podium.keyup(KEY_RIGHT); 
 				break;
 			}
 			//If it is not being pressed fire a keydown
-			else{
+			else if (!down_right && move.dir){
 				down_right = true;
 				movesMade.push(new Move(KEY_RIGHT, true, getPipe()));
 				Podium.keydown(KEY_RIGHT); 
 				break;
 			}
+			else{
+				movesMade.push(null);
+			}
 			//Jump key (x)
 		case KEY_JUMP:
 			//If it is being pressed fire a keyup
-			if (down_jump){
+			if (down_jump && !move.dir){
 				down_jump = false;
 				movesMade.push(new Move(KEY_JUMP, false, getPipe()));
 				Podium.keyup(KEY_JUMP); 
 				break;
 			}//If it is not being pressed fire a keydown
-			else{
+			else if (!down_jump & move.dir){
 				down_jump = true;
 				movesMade.push(new Move(KEY_JUMP, true, getPipe()));
 				Podium.keydown(KEY_JUMP); 
 				break;
+			}
+			else{
+				movesMade.push(null);
 			}
 		}
 	}
