@@ -19,7 +19,7 @@ function startGenetic() {
 	console.log("Starting Genetic");
 	// Randomly produce 4 MPDFs (global variables)
 	var temp = [];
-	for (var i = 0; i < 8; i++){
+	for (var i = 0; i < 16; i++){
 		var mpdf = generateMPDF();
 		printMPDF(mpdf);
 		temp.push(mpdf);
@@ -111,7 +111,7 @@ WIN = -2;
  */
 function fitness(sequence_array) {
 	console.log("Fittness");
-	var score = 1000000000;
+	var score = 0;
 	var wins = 0;
 	for (var s = 0; s < sequence_array.length; s++) {
 		sequence = sequence_array[s];
@@ -120,24 +120,24 @@ function fitness(sequence_array) {
 			if (move != null) {
 				switch(move.move){
 				case DEATH:
-					score = score + 100000;
+					score = score - 100;
 					break;
 				case GAME_OVER:
-					score = score + 1000000;
+					score = score - 100;
 					i = sequence.length;
 					break;
 				case WIN:
-					score = score - 1000000000;
+					score = score + 2000;
 					wins = wins + 1;
 					break;
 				}
-				if (move != null && sequence[i-2] != null && isMatch(move.pipeCheck, sequence[i-2].pipeCheck)) {
-					score = score + 10;
-				}
 				if (!isMatch(move.pipeCheck, sequence[i-2].pipeCheck)) {
-					score = score - 50;
+					score = score +1;
 				}
 			}
+		}
+		if (score < 0){
+			score = 0;
 		}
 	}
 	console.log("AVE SCORE " + score + " sWINS " + wins);
@@ -152,16 +152,8 @@ function matingProbability(scores) {
 		total = total + scores[i];
 	}
 	for (var i = 0; i < scores.length; i++) { 
-		var probability = (total - scores[i]) / total;
+		var probability = (scores[i]) / total;
 		matingProbabilities.push(probability);
-	}
-	total = 0;
-	for (var i = 0; i < scores.length; i++) {
-		total = total + matingProbabilities[i];
-	}
-	for (var i = 0; i < scores.length; i++) { 
-		var probability = (matingProbabilities[i]) / total;
-		matingProbabilities[i] =(probability);
 	}
 	return matingProbabilities;
 }
