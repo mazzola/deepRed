@@ -153,6 +153,7 @@ function matingProbability(scores) {
 	}
 	for (var i = 0; i < scores.length; i++) { 
 		var probability = (scores[i]) / total;
+		console.log("PROB: " + probability);
 		matingProbabilities.push(probability);
 	}
 	return matingProbabilities;
