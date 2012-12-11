@@ -227,14 +227,14 @@ function mutate(population) {
 		var mpdf = population[i];
 		var least1 = 1;
 		for (var j = 0; j < mpdf.length/2; j++){
-			if (least > mpdf[j]){
-				least = mpdf[j];
+			if (least1 > mpdf[j]){
+				least1 = mpdf[j];
 			}
 		}
 		var least2 = 1;
 		for (var j = 3; j < mpdf.length; j++){
-			if (least > mpdf[j]){
-				least = mpdf[j];
+			if (least2 > mpdf[j]){
+				least2 = mpdf[j];
 			}
 		}
 		var chance1 = Math.random();
