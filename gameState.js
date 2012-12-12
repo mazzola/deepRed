@@ -30,7 +30,7 @@ down_right = false; //right arrow
 down_jump = false; //'x' jump
 prevTime = [];
 numTime = 0;
-iterations = 2;
+iterations = 1;
 currentIteration = 0;
 fitnessCount = 4;
 
