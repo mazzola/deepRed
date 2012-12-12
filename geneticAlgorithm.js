@@ -19,7 +19,7 @@ function startGenetic() {
 	console.log("Starting Genetic");
 	// Randomly produce 4 MPDFs (global variables)
 	var temp = [];
-	for (var i = 0; i < 16; i++){
+	for (var i = 0; i < 4; i++){
 		var mpdf = generateMPDF();
 		printMPDF(mpdf);
 		temp.push(mpdf);
@@ -240,7 +240,7 @@ function mutate(population) {
 		var subAmount1 = mutAmount1/(mpdf.length/2 - 1);
 		var subAmount2 = mutAmount2/(mpdf.length/2 - 1);
 		if (chance1 < mutChance){
-			colsole.log("MUTATION1");
+			console.log("MUTATION1");
 			for (var j = 0; j < mpdf.length/2; j++){
 				if (j == mutIndex1){
 					mpdf[j] = mpdf[j] + mutAmount1;
