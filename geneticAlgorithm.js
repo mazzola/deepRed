@@ -19,7 +19,7 @@ function startGenetic() {
 	console.log("Starting Genetic");
 	// Randomly produce 4 MPDFs (global variables)
 	var temp = [];
-	for (var i = 0; i < 2; i++){
+	for (var i = 0; i < 8; i++){
 		var mpdf = generateMPDF();
 		printMPDF(mpdf);
 		temp.push(mpdf);
