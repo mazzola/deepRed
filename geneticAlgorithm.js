@@ -19,7 +19,7 @@ function startGenetic() {
 	console.log("Starting Genetic");
 	// Randomly produce 4 MPDFs (global variables)
 	var temp = [];
-	for (var i = 0; i < 16; i++){
+	for (var i = 0; i < 4; i++){
 		var mpdf = generateMPDF();
 		printMPDF(mpdf);
 		temp.push(mpdf);
@@ -111,9 +111,10 @@ WIN = -2;
  */
 function fitness(sequence_array) {
 	console.log("Fittness");
-	var score = 0;
 	var wins = 0;
+	var max = 0;
 	for (var s = 0; s < sequence_array.length; s++) {
+		var score = 0;
 		sequence = sequence_array[s];
 		for (var i = 2; i < sequence.length; i++) {
 			var move = sequence[i];
@@ -132,16 +133,19 @@ function fitness(sequence_array) {
 					break;
 				}
 				if (!isMatch(move.pipeCheck, sequence[i-2].pipeCheck)) {
-					score = score +1;
+					score = score+1;
 				}
 			}
 		}
 		if (score < 0){
 			score = 0;
 		}
+		if (max < score){
+			max = score;
+		}
 	}
-	console.log("AVE SCORE " + score + " sWINS " + wins);
-	return score/sequence_array.length;
+	console.log("AVE SCORE " + max + " sWINS " + wins);
+	return max;
 }
 
 function matingProbability(scores) {
